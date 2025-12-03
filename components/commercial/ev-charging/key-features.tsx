@@ -1,4 +1,4 @@
-import { Wrench, Toolbox, FileCode, Monitor } from "lucide-react"
+import { Wrench, Settings, FileCode, Monitor } from "lucide-react"
 
 const features = [
   {
@@ -11,7 +11,7 @@ const features = [
     ],
   },
   {
-    icon: Toolbox,
+    icon: Settings,
     title: "Certified Installation",
     items: [
       "CSA/U-certified EVSE",

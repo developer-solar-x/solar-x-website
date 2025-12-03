@@ -1,8 +1,8 @@
-import { ServiceBell, Zap, TrendingUp, Sun } from "lucide-react"
+import { ConciergeBell, Zap, TrendingUp, Sun } from "lucide-react"
 
 const features = [
   {
-    icon: ServiceBell,
+    icon: ConciergeBell,
     title: "One-Stop EPC Service",
     description: "Design, permitting, installation, and post-service — handled entirely in-house",
   },

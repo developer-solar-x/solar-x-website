@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Enable Turbopack configuration to work alongside the existing webpack config
+  // This silences the Next.js 16 error about using Turbopack with a webpack config and no turbopack config
+  turbopack: {},
   typescript: {
     ignoreBuildErrors: true,
   },
