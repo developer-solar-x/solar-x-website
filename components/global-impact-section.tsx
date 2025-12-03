@@ -32,47 +32,65 @@ export function GlobalImpactSection() {
             </Link>
           </ScrollReveal>
 
-          {/* Right - Image Mosaic */}
+          {/* Right - Bento grid image mosaic (3x3 bento layout, 6 images) */}
           <ScrollReveal direction="left" delay={0.2} className="h-full">
-            <div className="grid grid-cols-2 gap-4 h-full">
-              {/* Column 1 */}
-              <div className="space-y-4">
-                <div className="relative rounded-2xl overflow-hidden shadow-xl h-40 md:h-52 lg:h-64">
-                  <Image
-                    src="/large-commercial-solar-farm-with-rows-of-panels.jpg"
-                    alt="Commercial solar farm"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="relative rounded-2xl overflow-hidden shadow-xl h-40 md:h-52 lg:h-64">
-                  <Image
-                    src="/residential-solar-panels-on-modern-home-rooftop.jpg"
-                    alt="Residential solar installation"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+            <div className="grid grid-cols-3 gap-4 h-full auto-rows-[140px] md:auto-rows-[170px] lg:auto-rows-[190px]">
+              {/* Large hero tile - top-left, 2x2 */}
+              <div className="relative col-span-2 row-span-2 col-start-1 row-start-1 rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/large-commercial-solar-farm-with-rows-of-panels.jpg"
+                  alt="Utility-scale solar farm"
+                  fill
+                  className="object-cover"
+                  priority
+                />
               </div>
 
-              {/* Column 2 */}
-              <div className="space-y-4 pt-6 md:pt-10">
-                <div className="relative rounded-2xl overflow-hidden shadow-xl h-40 md:h-52 lg:h-64">
-                  <Image
-                    src="/ground-mounted-solar-array-in-green-field.jpg"
-                    alt="Ground mounted solar array"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="relative rounded-2xl overflow-hidden shadow-xl h-40 md:h-52 lg:h-64">
-                  <Image
-                    src="/industrial-solar-installation-on-factory-building.jpg"
-                    alt="Industrial solar installation"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+              {/* Right column, stacked */}
+              <div className="relative col-start-3 row-start-1 rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/commercial-solar-panels-on-warehouse-building.jpg"
+                  alt="Commercial rooftop solar"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              <div className="relative col-start-3 row-start-2 rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/ground-mounted-solar-array-in-green-field.jpg"
+                  alt="Ground-mounted solar array"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Bottom row - three equal tiles */}
+              <div className="relative col-start-1 row-start-3 rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/home-battery-storage-system-on-wall-modern-house-i.jpg"
+                  alt="Home battery storage system"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              <div className="relative col-start-2 row-start-3 rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/industrial-solar-installation-on-factory-building.jpg"
+                  alt="Industrial solar installation"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              <div className="relative col-start-3 row-start-3 rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/residential-solar-panels-on-modern-home-rooftop.jpg"
+                  alt="Residential solar rooftop"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
           </ScrollReveal>

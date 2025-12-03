@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ScrollReveal } from "@/components/scroll-reveal"
 
@@ -12,6 +13,7 @@ const landingVideos = [
 
 export function HeroSection() {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+  const [isVideoReady, setIsVideoReady] = useState(false)
 
   useEffect(() => {
     if (landingVideos.length <= 1) return
@@ -25,7 +27,18 @@ export function HeroSection() {
 
   return (
     <section className="relative overflow-hidden min-h-screen flex items-center">
-      {/* Full-width background video carousel */}
+      {/* Static image background as immediate fallback */}
+      <div className="pointer-events-none absolute inset-0">
+        <Image
+          src="/modern-house-with-solar-panels-at-dusk--dark-moody.jpg"
+          alt="Solar home at dusk"
+          fill
+          priority
+          className="object-cover"
+        />
+      </div>
+
+      {/* Background video carousel that fades in when ready */}
       <div className="pointer-events-none absolute inset-0">
         {landingVideos.map((src, index) => (
           <video
@@ -35,8 +48,9 @@ export function HeroSection() {
             muted
             loop
             playsInline
+            onCanPlay={() => setIsVideoReady(true)}
             className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${
-              index === currentVideoIndex ? "opacity-100" : "opacity-0"
+              index === currentVideoIndex && isVideoReady ? "opacity-100" : "opacity-0"
             }`}
           />
         ))}
@@ -44,15 +58,25 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/40" />
       </div>
 
+      {/* Subtle non-blocking hint while video is initializing */}
+      {!isVideoReady && (
+        <div className="pointer-events-none absolute inset-x-0 bottom-8 z-0 flex justify-center">
+          <div className="rounded-full bg-black/40 border border-white/10 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/70 backdrop-blur-sm animate-pulse">
+            Enhancing background visuals
+          </div>
+        </div>
+      )}
+
       {/* Foreground content */}
-      <div className="relative max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-16 lg:py-32">
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-16 lg:py-32">
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           {/* Left Content */}
           <ScrollReveal direction="right" delay={0.1} className="space-y-6 text-left">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-balance text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]">
-              <span className="text-white">Solar X Canada</span> <span className="text-white">Turns Every</span>
+              <span className="text-white">Solar X Canada</span>{" "}
+              <span className="text-[#ff4a4a]">turns your rooftop</span>
               <br />
-              <span className="text-[#ff4a4a]">Rooftop</span> <span className="text-white">Into a Power Station</span>
+              <span className="text-white">into a clean energy source</span>
             </h1>
 
             <p className="text-lg text-white/90 max-w-md drop-shadow-[0_3px_10px_rgba(0,0,0,0.6)]">

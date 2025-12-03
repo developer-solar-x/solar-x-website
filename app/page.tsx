@@ -1,7 +1,6 @@
 import { AnnouncementBanner } from "@/components/announcement-banner"
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
-import { StatsSection } from "@/components/stats-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { GlobalImpactSection } from "@/components/global-impact-section"
 import { CanadaMapSection, ResidentialCommercialSection } from "@/components/canada-map-section"
@@ -15,7 +14,6 @@ export default function Home() {
       <AnnouncementBanner />
       <Header />
       <HeroSection />
-      <StatsSection />
       <CanadaMapSection />
       <ResidentialCommercialSection />
       <TrustPartnersCarousel />
