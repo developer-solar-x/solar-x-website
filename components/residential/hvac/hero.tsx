@@ -26,7 +26,7 @@ export function HvacHero() {
         <div className="mt-10">
           <Button 
             size="lg" 
-            className="rounded-full bg-primary px-10 py-7 text-xl font-semibold text-white hover:bg-[#4a90e2] hover:scale-110 hover:shadow-[0_0_30px_rgba(74,144,226,0.8),0_0_60px_rgba(74,144,226,0.5),0_0_90px_rgba(74,144,226,0.3)] transition-all duration-300 flex items-center gap-2 mx-auto"
+            className="bg-primary px-10 py-7 text-xl font-semibold text-white hover:bg-primary/90 flex items-center gap-2 mx-auto"
           >
             Free HVAC Quote
             <ArrowRight className="h-5 w-5" />
