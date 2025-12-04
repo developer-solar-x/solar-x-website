@@ -24,9 +24,10 @@ export function HvacHero() {
           Energy Designed for Your Home
         </p>
         <div className="mt-10">
-          <Button 
-            size="lg" 
-            className="bg-primary px-10 py-7 text-xl font-semibold text-white hover:bg-primary/90 flex items-center gap-2 mx-auto"
+          <Button
+            size="lg"
+            variant="ghost"
+            className="glass-pill-button flex items-center gap-2 mx-auto text-lg font-semibold"
           >
             Free HVAC Quote
             <ArrowRight className="h-5 w-5" />

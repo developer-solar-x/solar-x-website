@@ -10,7 +10,7 @@ const services = [
   },
   {
     title: "Battery Solutions",
-    image: "/home-battery-storage-system-on-wall-modern-house-i.jpg",
+    image: "/solar battery.png",
     href: "/residential/battery-solutions",
   },
   {
@@ -36,7 +36,7 @@ export function ServicesCards() {
             <Link
               key={service.title}
               href={service.href}
-              className="group relative h-[400px] flex-1 overflow-hidden rounded-xl transition-all duration-500 ease-in-out sm:hover:flex-[2]"
+              className="group relative h-[400px] flex-1 overflow-hidden transition-all duration-500 ease-in-out sm:hover:flex-[2]"
             >
               <Image
                 src={service.image || "/placeholder.svg"}

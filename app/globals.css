@@ -139,4 +139,75 @@
   .animate-partners-marquee {
     animation: partners-marquee 45s linear infinite;
   }
+
+  /* Glass-morphism pill button with animated reflective shine */
+  .glass-pill-button {
+    position: relative;
+    border-radius: 9999px;
+    padding-inline: 2.75rem;
+    padding-block: 0.9rem;
+    background: radial-gradient(circle at 20% 0%, rgba(180, 220, 255, 0.5), transparent 55%),
+      linear-gradient(135deg, rgba(15, 98, 197, 0.55), rgba(9, 54, 120, 0.9));
+    color: white;
+    box-shadow:
+      inset 0 0 18px rgba(255, 255, 255, 0.28),
+      0 10px 30px rgba(4, 22, 60, 0.7);
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    overflow: hidden;
+    transition:
+      transform 220ms ease,
+      box-shadow 220ms ease,
+      background 220ms ease;
+  }
+
+  .glass-pill-button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.0) 35%,
+      rgba(255, 255, 255, 0.25) 50%,
+      rgba(255, 255, 255, 0.0) 65%,
+      transparent 100%
+    );
+    transform: translateX(-140%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .glass-pill-button:hover {
+    transform: translateY(-1px) scale(1.04);
+    background: radial-gradient(circle at 20% 0%, rgba(210, 235, 255, 0.8), transparent 60%),
+      linear-gradient(135deg, rgba(40, 140, 255, 0.9), rgba(10, 80, 190, 0.98));
+    box-shadow:
+      inset 0 0 22px rgba(255, 255, 255, 0.4),
+      0 0 35px rgba(80, 160, 255, 0.9),
+      0 0 80px rgba(40, 120, 255, 0.7);
+  }
+
+  .glass-pill-button:hover::before {
+    opacity: 1;
+    animation: glass-shine 1.2s ease-in-out forwards;
+  }
+
+  @keyframes glass-shine {
+    0% {
+      transform: translateX(-140%) skewX(-20deg);
+      opacity: 0;
+    }
+    15% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 0.9;
+    }
+    100% {
+      transform: translateX(140%) skewX(-20deg);
+      opacity: 0;
+    }
+  }
 }

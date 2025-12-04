@@ -12,7 +12,7 @@ const services = [
   {
     title: "Battery Solutions",
     description: "A house with a battery storage on the wall, representing a commitment to renewable energy sources.",
-    image: "/home-battery-storage-system-on-wall-modern-house-i.jpg",
+    image: "/solar battery.png",
     href: "/commercial#battery",
   },
   {

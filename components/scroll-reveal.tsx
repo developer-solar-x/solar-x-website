@@ -20,10 +20,9 @@ export function ScrollReveal({
   delay = 0,
   duration = 0.6,
   threshold = 0.1,
-  triggerOnce = true,
+  triggerOnce = false,
 }: ScrollRevealProps) {
   const [isVisible, setIsVisible] = useState(false)
-  const [hasAnimated, setHasAnimated] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -37,15 +36,9 @@ export function ScrollReveal({
             if (delay > 0) {
               setTimeout(() => {
                 setIsVisible(true)
-                if (triggerOnce) {
-                  setHasAnimated(true)
-                }
               }, delay)
             } else {
               setIsVisible(true)
-              if (triggerOnce) {
-                setHasAnimated(true)
-              }
             }
           } else if (!triggerOnce) {
             setIsVisible(false)
@@ -69,20 +62,20 @@ export function ScrollReveal({
     if (!isVisible) {
       switch (direction) {
         case "up":
-          return "translateY(30px)"
+          return "translateY(80px) scale(0.9)"
         case "down":
-          return "translateY(-30px)"
+          return "translateY(-80px) scale(0.9)"
         case "left":
-          return "translateX(30px)"
+          return "translateX(80px) scale(0.9)"
         case "right":
-          return "translateX(-30px)"
+          return "translateX(-80px) scale(0.9)"
         case "fade":
-          return "translateY(0)"
+          return "scale(0.95)"
         default:
-          return "translateY(30px)"
+          return "translateY(80px) scale(0.9)"
       }
     }
-    return "translateY(0) translateX(0)"
+    return "translateY(0) translateX(0) scale(1)"
   }
 
   return (

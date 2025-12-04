@@ -25,7 +25,11 @@ export function SolarSolutionsHero() {
         </p>
         <div className="mt-10">
           <Link href="#contact">
-            <Button size="lg" className="bg-primary px-10 py-7 text-xl font-semibold text-white hover:bg-primary/90">
+            <Button
+              size="lg"
+              variant="ghost"
+              className="glass-pill-button text-lg font-semibold"
+            >
               Go Solar Now
             </Button>
           </Link>

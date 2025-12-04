@@ -59,19 +59,21 @@ export function PowerScenarios() {
               const Icon = scenario.icon
               return (
                 <TabsContent key={scenario.id} value={scenario.id}>
-                  <Card>
-                    <CardHeader>
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                          <Icon className="h-6 w-6 text-primary" />
+                  <Card className="rounded-2xl border border-border/60 bg-white/95 shadow-[0_18px_45px_rgba(15,23,42,0.08)] dark:bg-background/90 dark:border-border/70 dark:shadow-[0_18px_45px_rgba(0,0,0,0.55)]">
+                    <CardHeader className="pb-4">
+                      <div className="flex items-center gap-4">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                          <Icon className="h-6 w-6" />
                         </div>
                         <div>
-                          <CardTitle className="text-2xl">{scenario.title}</CardTitle>
+                          <CardTitle className="text-2xl font-semibold text-foreground">
+                            {scenario.title}
+                          </CardTitle>
                         </div>
                       </div>
                     </CardHeader>
-                    <CardContent>
-                      <CardDescription className="text-base leading-relaxed">
+                    <CardContent className="pt-2">
+                      <CardDescription className="text-base leading-relaxed text-muted-foreground">
                         {scenario.description}
                       </CardDescription>
                     </CardContent>

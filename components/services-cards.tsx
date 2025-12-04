@@ -10,7 +10,7 @@ const services = [
   },
   {
     title: "Battery Solutions",
-    image: "/home-battery-storage-system-on-wall-modern-house-i.jpg",
+    image: "/solar battery.png",
     href: "/residential/battery-solutions",
   },
   {

@@ -48,7 +48,7 @@ export function PortablePowerStations() {
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {powerStations.map((station, index) => (
-            <Card key={index} className="overflow-hidden">
+            <Card key={index} className="flex flex-col overflow-hidden">
               <div className="relative h-48 w-full">
                 <Image
                   src={station.image}
@@ -61,12 +61,12 @@ export function PortablePowerStations() {
                 <CardTitle className="text-lg">{station.name}</CardTitle>
                 <CardDescription className="font-medium">{station.title}</CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex flex-col flex-1">
                 <div className="space-y-2">
                   <p className="text-sm text-muted-foreground">• {station.capacity}</p>
                   <p className="text-sm text-muted-foreground">• {station.output}</p>
                 </div>
-                <Button className="mt-4 w-full bg-primary text-white hover:bg-primary/90">
+                <Button className="mt-auto w-full bg-primary text-white hover:bg-primary/90">
                   Purchase Now
                 </Button>
               </CardContent>
