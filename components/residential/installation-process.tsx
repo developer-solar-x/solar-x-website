@@ -255,7 +255,7 @@ export function InstallationProcess() {
           <div className="mt-16 text-center">
             <Button 
               size="lg" 
-              className="bg-primary px-8 py-6 text-lg font-semibold text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              className="bg-[#1a2b6b] hover:bg-[#152254] text-white rounded-full px-8 py-6 text-lg font-semibold transition-all duration-300"
             >
               Request a Quote
             </Button>
