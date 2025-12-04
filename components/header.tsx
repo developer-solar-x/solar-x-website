@@ -1,9 +1,9 @@
 "use client"
 
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ChevronDown } from "lucide-react"
 import Image from "next/image"
 
 const navItems = [
@@ -39,6 +39,16 @@ const provincesSubmenu = [
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [hoveredSubmenu, setHoveredSubmenu] = useState<string | null>(null)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   const getSubmenu = (key: string | undefined) => {
     if (key === "residential") return residentialSubmenu
@@ -75,11 +85,14 @@ export function Header() {
               >
                 <Link
                   href={item.href}
-                  className={`text-foreground/80 hover:text-foreground text-sm font-medium transition-colors relative ${
+                  className={`text-foreground/80 hover:text-foreground text-sm font-medium transition-colors relative flex items-center gap-1 ${
                     item.hasSubmenu && hoveredSubmenu === item.submenuKey ? "text-foreground" : ""
                   }`}
                 >
                   {item.label}
+                  {item.hasSubmenu && isScrolled && (
+                    <ChevronDown className="w-4 h-4" />
+                  )}
                   {item.hasSubmenu && hoveredSubmenu === item.submenuKey && (
                     <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600" />
                   )}

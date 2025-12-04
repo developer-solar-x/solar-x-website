@@ -31,18 +31,18 @@ export function ServicesCards() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 flex flex-col sm:flex-row gap-6">
           {services.map((service) => (
             <Link
               key={service.title}
               href={service.href}
-              className="group relative h-[400px] overflow-hidden rounded-xl"
+              className="group relative h-[400px] flex-1 overflow-hidden rounded-xl transition-all duration-500 ease-in-out sm:hover:flex-[2]"
             >
               <Image
                 src={service.image || "/placeholder.svg"}
                 alt={service.title}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">

@@ -36,7 +36,7 @@ export function ResidentialHero() {
           backgroundImage: `url('/modern-house-with-solar-panels-at-dusk--dark-moody.jpg')`,
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/90 via-[#0a1628]/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/90 via-[#0a1628]/70 to-transparent backdrop-blur-sm" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 py-32 sm:px-6 lg:px-8">
@@ -53,15 +53,15 @@ export function ResidentialHero() {
               Discover Sustainable Savings Through Reliable Solar and Battery Solutions
             </p>
             <div className="mt-10">
-              <Button size="lg" className="bg-primary px-10 py-7 text-xl font-semibold text-white hover:bg-primary/90">
+              <Button size="lg" className="rounded-full bg-primary px-10 py-7 text-xl font-semibold text-white hover:bg-[#4a90e2] hover:scale-110 hover:shadow-[0_0_30px_rgba(74,144,226,0.8),0_0_60px_rgba(74,144,226,0.5),0_0_90px_rgba(74,144,226,0.3)] transition-all duration-300">
                 Request Consultation
               </Button>
             </div>
           </div>
 
           {/* Right Form */}
-          <div className="rounded-lg bg-[#0a1628]/80 p-6 backdrop-blur-sm sm:p-8">
-            <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="rounded-xl bg-white/10 backdrop-blur-2xl p-6 sm:p-8 border border-white/20 shadow-2xl relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/20 before:to-transparent before:pointer-events-none">
+            <form onSubmit={handleSubmit} className="space-y-4 relative z-10">
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor="firstName" className="text-white">
@@ -70,7 +70,7 @@ export function ResidentialHero() {
                   <Input
                     id="firstName"
                     placeholder="Adam"
-                    className="border-gray-600 bg-[#1a2b4a] text-white placeholder:text-gray-400"
+                    className="border-white/20 bg-white/5 backdrop-blur-md text-white placeholder:text-white/50 focus:border-white/40 focus:bg-white/10 transition-all"
                     value={formData.firstName}
                     onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                   />
@@ -82,7 +82,7 @@ export function ResidentialHero() {
                   <Input
                     id="lastName"
                     placeholder="Smith"
-                    className="border-gray-600 bg-[#1a2b4a] text-white placeholder:text-gray-400"
+                    className="border-white/20 bg-white/5 backdrop-blur-md text-white placeholder:text-white/50 focus:border-white/40 focus:bg-white/10 transition-all"
                     value={formData.lastName}
                     onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                   />
@@ -98,7 +98,7 @@ export function ResidentialHero() {
                     id="email"
                     type="email"
                     placeholder="example@com"
-                    className="border-gray-600 bg-[#1a2b4a] text-white placeholder:text-gray-400"
+                    className="border-white/20 bg-white/5 backdrop-blur-md text-white placeholder:text-white/50 focus:border-white/40 focus:bg-white/10 transition-all"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   />
@@ -111,7 +111,7 @@ export function ResidentialHero() {
                     id="phone"
                     type="tel"
                     placeholder="+1 XXX-XXX-XXXX"
-                    className="border-gray-600 bg-[#1a2b4a] text-white placeholder:text-gray-400"
+                    className="border-white/20 bg-white/5 backdrop-blur-md text-white placeholder:text-white/50 focus:border-white/40 focus:bg-white/10 transition-all"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   />
@@ -125,7 +125,7 @@ export function ResidentialHero() {
                     value={formData.province}
                     onValueChange={(value) => setFormData({ ...formData, province: value })}
                   >
-                    <SelectTrigger className="border-gray-600 bg-[#1a2b4a] text-white">
+                    <SelectTrigger className="border-white/20 bg-white/5 backdrop-blur-md text-white focus:border-white/40 focus:bg-white/10 transition-all">
                       <SelectValue placeholder="Select your province" />
                     </SelectTrigger>
                     <SelectContent>
@@ -143,7 +143,7 @@ export function ResidentialHero() {
                     value={formData.solution}
                     onValueChange={(value) => setFormData({ ...formData, solution: value })}
                   >
-                    <SelectTrigger className="border-gray-600 bg-[#1a2b4a] text-white">
+                    <SelectTrigger className="border-white/20 bg-white/5 backdrop-blur-md text-white focus:border-white/40 focus:bg-white/10 transition-all">
                       <SelectValue placeholder="Select your solution" />
                     </SelectTrigger>
                     <SelectContent>
@@ -162,7 +162,7 @@ export function ResidentialHero() {
                 <Textarea
                   id="message"
                   placeholder="Write something here..."
-                  className="min-h-[100px] border-gray-600 bg-[#1a2b4a] text-white placeholder:text-gray-400"
+                  className="min-h-[100px] border-white/20 bg-white/5 backdrop-blur-md text-white placeholder:text-white/50 focus:border-white/40 focus:bg-white/10 transition-all"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 />
@@ -173,9 +173,9 @@ export function ResidentialHero() {
                   id="subscribe"
                   checked={formData.subscribe}
                   onCheckedChange={(checked) => setFormData({ ...formData, subscribe: checked as boolean })}
-                  className="border-gray-500 data-[state=checked]:bg-primary"
+                  className="border-white/50 data-[state=checked]:bg-primary"
                 />
-                <Label htmlFor="subscribe" className="text-sm leading-relaxed text-gray-300">
+                <Label htmlFor="subscribe" className="text-sm leading-relaxed text-white/90">
                   I would like to join the SolarX SMS and mailing list to receive newsletters, updates, and event
                   invitations from SolarX.
                 </Label>
