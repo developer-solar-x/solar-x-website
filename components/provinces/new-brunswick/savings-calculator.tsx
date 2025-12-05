@@ -83,7 +83,7 @@ export function NewBrunswickSavingsCalculator() {
               <div className="space-y-2">
                 <Label htmlFor="province">Select your province</Label>
                 <Select value={province} onValueChange={setProvince}>
-                  <SelectTrigger id="province">
+                  <SelectTrigger id="province" suppressHydrationWarning>
                     <SelectValue placeholder="Select province" />
                   </SelectTrigger>
                   <SelectContent>
@@ -107,6 +107,7 @@ export function NewBrunswickSavingsCalculator() {
                     value={monthlyCost}
                     onChange={(e) => setMonthlyCost(e.target.value)}
                     className="pl-7"
+                    suppressHydrationWarning
                   />
                 </div>
               </div>

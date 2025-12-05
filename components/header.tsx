@@ -103,7 +103,7 @@ export function Header() {
 
           {/* Get Quote Button - Right */}
           <div className="hidden md:block">
-            <Button className="rounded-full bg-[#e31b23] hover:bg-[#c91920] text-white">Get Quote</Button>
+            <Button className="rounded-full bg-[#e31b23] hover:bg-[#c91920] text-white" suppressHydrationWarning>Get Quote</Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -164,7 +164,7 @@ export function Header() {
                   )}
                 </div>
               ))}
-              <Button className="rounded-full bg-[#e31b23] hover:bg-[#c91920] text-white mt-2 w-fit">Get Quote</Button>
+              <Button className="rounded-full bg-[#e31b23] hover:bg-[#c91920] text-white mt-2 w-fit" suppressHydrationWarning>Get Quote</Button>
             </nav>
           </div>
         </div>

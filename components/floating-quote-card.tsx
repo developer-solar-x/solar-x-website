@@ -67,7 +67,7 @@ export function FloatingQuoteCard() {
         {/* Content */}
         <div className="p-4 text-center space-y-3">
           <p className="text-sm font-medium text-foreground">Find Out Your Solar Savings in 15 Seconds</p>
-          <Button className="w-full bg-[#1a2b6b] text-white hover:bg-[#152254] rounded-full text-sm">
+          <Button className="w-full bg-[#1a2b6b] text-white hover:bg-[#152254] rounded-full text-sm" suppressHydrationWarning>
             Request a Quote
           </Button>
         </div>

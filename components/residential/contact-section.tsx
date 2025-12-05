@@ -48,7 +48,7 @@ export function ContactSection() {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="mt-12 space-y-6">
+          <form onSubmit={handleSubmit} className="mt-12 space-y-6" suppressHydrationWarning>
           <div className="grid gap-6 sm:grid-cols-2">
             <div className="space-y-2">
               <Label htmlFor="contactFirstName" className="text-primary-foreground">
@@ -61,6 +61,7 @@ export function ContactSection() {
                 className="border-input bg-input text-primary-foreground placeholder:text-muted-foreground"
                 value={formData.firstName}
                 onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                suppressHydrationWarning
               />
             </div>
             <div className="space-y-2">
@@ -74,6 +75,7 @@ export function ContactSection() {
                 className="border-input bg-input text-primary-foreground placeholder:text-muted-foreground"
                 value={formData.lastName}
                 onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                suppressHydrationWarning
               />
             </div>
           </div>
@@ -91,6 +93,7 @@ export function ContactSection() {
                 className="border-input bg-input text-primary-foreground placeholder:text-muted-foreground"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                suppressHydrationWarning
               />
             </div>
             <div className="space-y-2">
@@ -105,6 +108,7 @@ export function ContactSection() {
                 className="border-input bg-input text-primary-foreground placeholder:text-muted-foreground"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                suppressHydrationWarning
               />
             </div>
           </div>
@@ -119,7 +123,7 @@ export function ContactSection() {
                 onValueChange={(value) => setFormData({ ...formData, province: value })}
                 required
               >
-                <SelectTrigger className="border-input bg-input text-primary-foreground">
+                <SelectTrigger className="border-input bg-input text-primary-foreground" suppressHydrationWarning>
                   <SelectValue placeholder="Select your province" />
                 </SelectTrigger>
                 <SelectContent>
@@ -140,7 +144,7 @@ export function ContactSection() {
                 onValueChange={(value) => setFormData({ ...formData, solution: value })}
                 required
               >
-                <SelectTrigger className="border-input bg-input text-primary-foreground">
+                <SelectTrigger className="border-input bg-input text-primary-foreground" suppressHydrationWarning>
                   <SelectValue placeholder="Select energy solution" />
                 </SelectTrigger>
                 <SelectContent>
@@ -175,7 +179,7 @@ export function ContactSection() {
             </Label>
           </div>
 
-          <Button type="submit" className="w-full py-6 text-lg font-semibold">
+          <Button type="submit" className="w-full py-6 text-lg font-semibold" suppressHydrationWarning>
             Submit Survey
           </Button>
         </form>

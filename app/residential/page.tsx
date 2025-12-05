@@ -8,7 +8,6 @@ import { HomeDepotPartner } from "@/components/residential/home-depot-partner"
 import { RedefineEnergy } from "@/components/residential/redefine-energy"
 import { FinancingSection } from "@/components/residential/financing-section"
 import { DroneTechnologySection } from "@/components/residential/drone-technology-section"
-import { CustomerPortalSection } from "@/components/residential/customer-portal-section"
 import { ContactSection } from "@/components/residential/contact-section"
 import { Footer } from "@/components/footer"
 import { FloatingQuoteCard } from "@/components/floating-quote-card"
@@ -26,7 +25,6 @@ export default function ResidentialPage() {
       <RedefineEnergy />
       <FinancingSection />
       <DroneTechnologySection />
-      <CustomerPortalSection />
       <ContactSection />
       <Footer />
       <FloatingQuoteCard />
