@@ -56,7 +56,7 @@ export function HvacFaqsSection() {
             {leftColumnFaqs.map((faq, index) => (
               <div key={index} className="border-b border-gray-200 last:border-b-0">
                 <Link 
-                  href={`/residential/faq#${faq.question.toLowerCase().replace(/\s+/g, '-')}`}
+                  href="/about#faqs"
                   className="flex items-center justify-between py-4 group hover:opacity-80 transition-opacity"
                 >
                   <span className="text-base text-foreground font-normal pr-4">
@@ -69,7 +69,7 @@ export function HvacFaqsSection() {
             
             {/* Button below left column */}
             <div className="mt-6">
-              <Link href="/residential/faq">
+              <Link href="/about#faqs">
                 <Button 
                   size="lg"
                   variant="ghost"
@@ -90,7 +90,7 @@ export function HvacFaqsSection() {
             {rightColumnFaqs.map((faq, index) => (
               <div key={index} className="border-b border-gray-200 last:border-b-0">
                 <Link 
-                  href={`/residential/faq#${faq.question.toLowerCase().replace(/\s+/g, '-')}`}
+                  href="/about#faqs"
                   className="flex items-center justify-between py-4 group hover:opacity-80 transition-opacity"
                 >
                   <span className="text-base text-foreground font-normal pr-4">

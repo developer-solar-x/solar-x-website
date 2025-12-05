@@ -13,11 +13,11 @@ const solarxLinks = [
 ]
 
 const serviceAreas = [
-  { label: "Alberta", href: "#" },
+  { label: "Alberta", href: "/provinces/alberta" },
   { label: "British Columbia", href: "#" },
-  { label: "New Brunswick", href: "#" },
-  { label: "Nova Scotia", href: "#" },
-  { label: "Ontario", href: "#" },
+  { label: "New Brunswick", href: "/provinces/new-brunswick" },
+  { label: "Nova Scotia", href: "/provinces/nova-scotia" },
+  { label: "Ontario", href: "/provinces/ontario" },
 ]
 
 const otherLocations = [

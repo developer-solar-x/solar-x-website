@@ -10,7 +10,7 @@ const navItems = [
   { label: "Residential", href: "/residential", hasSubmenu: true, submenuKey: "residential" },
   { label: "Commercial", href: "/commercial", hasSubmenu: true, submenuKey: "commercial" },
   { label: "Provinces", href: "#", hasSubmenu: true, submenuKey: "provinces" },
-  { label: "About", href: "#", hasDropdown: true },
+  { label: "About", href: "/about", hasSubmenu: true, submenuKey: "about" },
   { label: "Contact", href: "#" },
 ]
 
@@ -18,7 +18,7 @@ const residentialSubmenu = [
   { label: "Solar Solutions", href: "/residential/solar-solutions" },
   { label: "Battery Solutions", href: "/residential/battery-solutions" },
   { label: "HVAC", href: "/residential/hvac" },
-  { label: "FAQs", href: "/residential/faq" },
+  { label: "FAQs", href: "/about#faqs" },
 ]
 
 const commercialSubmenu = [
@@ -26,7 +26,7 @@ const commercialSubmenu = [
   { label: "Battery Solutions", href: "/commercial/battery-solution" },
   { label: "EV Charging Solutions", href: "/commercial/ev-charging-solutions" },
   { label: "Incentives", href: "/commercial/incentives" },
-  { label: "FAQs", href: "/commercial/battery-solution#faqs" },
+  { label: "FAQs", href: "/about#faqs" },
 ]
 
 const provincesSubmenu = [
@@ -34,6 +34,10 @@ const provincesSubmenu = [
   { label: "New Brunswick", href: "/provinces/new-brunswick" },
   { label: "Nova Scotia", href: "/provinces/nova-scotia" },
   { label: "Ontario", href: "/provinces/ontario" },
+]
+
+const aboutSubmenu = [
+  { label: "FAQs", href: "/about#faqs" },
 ]
 
 export function Header() {
@@ -54,6 +58,7 @@ export function Header() {
     if (key === "residential") return residentialSubmenu
     if (key === "commercial") return commercialSubmenu
     if (key === "provinces") return provincesSubmenu
+    if (key === "about") return aboutSubmenu
     return null
   }
 

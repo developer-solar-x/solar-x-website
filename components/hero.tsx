@@ -36,7 +36,7 @@ export function ResidentialHero() {
           backgroundImage: `url('/modern-house-with-solar-panels-at-dusk--dark-moody.jpg')`,
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/90 via-[#0a1628]/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/40" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">

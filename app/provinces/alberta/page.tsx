@@ -9,7 +9,6 @@ import { SunlineSection } from "@/components/provinces/alberta/sunline-section"
 import { SolarInstallationsSection } from "@/components/provinces/alberta/solar-installations"
 import { AlbertaSavingsCalculator } from "@/components/provinces/alberta/savings-calculator"
 import { WhyAlbertaSection } from "@/components/provinces/alberta/why-alberta"
-import { HomeDepotPartner } from "@/components/home-depot-partner"
 
 export default function AlbertaPage() {
   return (
@@ -23,7 +22,6 @@ export default function AlbertaPage() {
       <SolarInstallationsSection />
       <AlbertaSavingsCalculator />
       <WhyAlbertaSection />
-      <HomeDepotPartner />
       <Footer />
       <FloatingQuoteCard />
     </main>

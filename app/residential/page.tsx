@@ -4,7 +4,6 @@ import { ResidentialHero } from "@/components/residential/hero"
 import { ServicesCards } from "@/components/residential/services-cards"
 import { WhyChooseUs } from "@/components/residential/why-choose-us"
 import { FreeGiftSection } from "@/components/residential/free-gift-section"
-import { HomeDepotPartner } from "@/components/residential/home-depot-partner"
 import { RedefineEnergy } from "@/components/residential/redefine-energy"
 import { FinancingSection } from "@/components/residential/financing-section"
 import { DroneTechnologySection } from "@/components/residential/drone-technology-section"
@@ -21,7 +20,6 @@ export default function ResidentialPage() {
       <ServicesCards />
       <WhyChooseUs />
       <FreeGiftSection />
-      <HomeDepotPartner />
       <RedefineEnergy />
       <FinancingSection />
       <DroneTechnologySection />

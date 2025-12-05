@@ -3,7 +3,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { FloatingQuoteCard } from "@/components/floating-quote-card"
 import { IncentivesHero } from "@/components/commercial/incentives-hero"
-import { IncentivesSection } from "@/components/commercial/incentives-section"
+import { IncentivesSectionNew } from "@/components/commercial/incentives-section-new"
 import { ContactSection } from "@/components/residential/contact-section"
 
 export default function CommercialIncentivesPage() {
@@ -12,7 +12,7 @@ export default function CommercialIncentivesPage() {
       <AnnouncementBanner />
       <Header />
       <IncentivesHero />
-      <IncentivesSection />
+      <IncentivesSectionNew />
       <ContactSection />
       <Footer />
       <FloatingQuoteCard />
