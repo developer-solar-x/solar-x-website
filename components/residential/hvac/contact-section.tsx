@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { Checkbox } from "@/components/ui/checkbox"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 export function HvacContactSection() {
@@ -18,7 +17,6 @@ export function HvacContactSection() {
     province: "",
     solution: "",
     message: "",
-    subscribe: false,
   })
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -34,152 +32,146 @@ export function HvacContactSection() {
         style={{
           backgroundImage: `url('/aerial-view-of-house-with-solar-panels-on-roof--dr.jpg')`,
         }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/80 to-primary/70" />
-      </div>
+      />
 
-      <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 w-full">
-        <div className="bg-primary/80 backdrop-blur-sm rounded-xl p-8 sm:p-12">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-primary-foreground sm:text-4xl">Contact Us</h2>
-            <p className="mt-4 text-lg text-primary-foreground/90">
-              We're here to help! Whether you have questions about solar and battery solutions, rebates, or installation, our
-              team is ready to assist. Send us a message, and we'll get back to you soon!
-            </p>
-          </div>
-
-          <form onSubmit={handleSubmit} className="mt-12 space-y-6">
-          <div className="grid gap-6 sm:grid-cols-2">
-            <div className="space-y-2">
-              <Label htmlFor="hvacFirstName" className="text-primary-foreground">
-                First Name <span className="text-destructive">*</span>
-              </Label>
-              <Input
-                id="hvacFirstName"
-                placeholder="First Name"
-                required
-                className="border-input bg-input text-primary-foreground placeholder:text-muted-foreground"
-                value={formData.firstName}
-                onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="hvacLastName" className="text-primary-foreground">
-                Last Name <span className="text-destructive">*</span>
-              </Label>
-              <Input
-                id="hvacLastName"
-                placeholder="Last Name"
-                required
-                className="border-input bg-input text-primary-foreground placeholder:text-muted-foreground"
-                value={formData.lastName}
-                onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-              />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid lg:grid-cols-2 gap-6">
+          {/* Left Overlay - Contact Us Info */}
+          <div className="rounded-xl bg-white/5 backdrop-blur-2xl p-6 sm:p-8 border border-white/20 shadow-2xl relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/10 before:via-transparent before:to-transparent before:pointer-events-none flex flex-col justify-center transition-all duration-300 hover:border-white/30">
+            <div className="relative z-10">
+              <h2 className="text-4xl font-bold text-white sm:text-5xl drop-shadow-lg">Contact Us</h2>
+              <p className="mt-6 text-lg text-white/90 leading-relaxed drop-shadow-md">
+                We're here to help! Whether you have questions about solar and battery solutions, rebates, or installation, our
+                team is ready to assist. Send us a message, and we'll get back to you soon!
+              </p>
             </div>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2">
-            <div className="space-y-2">
-              <Label htmlFor="hvacEmail" className="text-primary-foreground">
-                Email <span className="text-destructive">*</span>
-              </Label>
-              <Input
-                id="hvacEmail"
-                type="email"
-                placeholder="Email"
-                required
-                className="border-input bg-input text-primary-foreground placeholder:text-muted-foreground"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="hvacPhone" className="text-primary-foreground">
-                Phone Number <span className="text-destructive">*</span>
-              </Label>
-              <Input
-                id="hvacPhone"
-                type="tel"
-                placeholder="+1 XXX-XXX-XXXX"
-                required
-                className="border-input bg-input text-primary-foreground placeholder:text-muted-foreground"
-                value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              />
-            </div>
-          </div>
+          {/* Right Overlay - Contact Form */}
+          <div className="rounded-xl bg-white/5 backdrop-blur-2xl p-6 sm:p-8 border border-white/20 shadow-2xl relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/10 before:via-transparent before:to-transparent before:pointer-events-none transition-all duration-300 hover:border-white/30">
+            <form onSubmit={handleSubmit} className="space-y-4 relative z-10">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="space-y-2">
+                  <Label htmlFor="hvacFirstName" className="text-white">
+                    First Name <span className="text-red-500">*</span>
+                  </Label>
+                  <Input
+                    id="hvacFirstName"
+                    placeholder="Adam"
+                    required
+                    className="border-white/20 bg-white/5 backdrop-blur-md text-white placeholder:text-white/50 focus:border-white/40 focus:bg-white/10 transition-all"
+                    value={formData.firstName}
+                    onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="hvacLastName" className="text-white">
+                    Last Name <span className="text-red-500">*</span>
+                  </Label>
+                  <Input
+                    id="hvacLastName"
+                    placeholder="Smith"
+                    required
+                    className="border-white/20 bg-white/5 backdrop-blur-md text-white placeholder:text-white/50 focus:border-white/40 focus:bg-white/10 transition-all"
+                    value={formData.lastName}
+                    onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                  />
+                </div>
+              </div>
 
-          <div className="grid gap-6 sm:grid-cols-2">
-            <div className="space-y-2">
-              <Label className="text-primary-foreground">
-                Province <span className="text-destructive">*</span>
-              </Label>
-              <Select
-                value={formData.province}
-                onValueChange={(value) => setFormData({ ...formData, province: value })}
-                required
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="space-y-2">
+                  <Label htmlFor="hvacEmail" className="text-white">
+                    Email <span className="text-red-500">*</span>
+                  </Label>
+                  <Input
+                    id="hvacEmail"
+                    type="email"
+                    placeholder="example@com"
+                    required
+                    className="border-white/20 bg-white/5 backdrop-blur-md text-white placeholder:text-white/50 focus:border-white/40 focus:bg-white/10 transition-all"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="hvacPhone" className="text-white">
+                    Phone Number <span className="text-red-500">*</span>
+                  </Label>
+                  <Input
+                    id="hvacPhone"
+                    type="tel"
+                    placeholder="+1 XXX-XXX-XXXX"
+                    required
+                    className="border-white/20 bg-white/5 backdrop-blur-md text-white placeholder:text-white/50 focus:border-white/40 focus:bg-white/10 transition-all"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  />
+                </div>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="space-y-2">
+                  <Label className="text-white">
+                    Province <span className="text-red-500">*</span>
+                  </Label>
+                  <Select
+                    value={formData.province}
+                    onValueChange={(value) => setFormData({ ...formData, province: value })}
+                    required
+                  >
+                    <SelectTrigger className="border-white/20 bg-white/5 backdrop-blur-md text-white focus:border-white/40 focus:bg-white/10 transition-all">
+                      <SelectValue placeholder="Select your province" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="alberta">Alberta</SelectItem>
+                      <SelectItem value="bc">British Columbia</SelectItem>
+                      <SelectItem value="nova-scotia">Nova Scotia</SelectItem>
+                      <SelectItem value="ontario">Ontario</SelectItem>
+                      <SelectItem value="pei">Prince Edward Island</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-2">
+                  <Label className="text-white">
+                    Energy Solution Type <span className="text-red-500">*</span>
+                  </Label>
+                  <Select
+                    value={formData.solution}
+                    onValueChange={(value) => setFormData({ ...formData, solution: value })}
+                    required
+                  >
+                    <SelectTrigger className="border-white/20 bg-white/5 backdrop-blur-md text-white focus:border-white/40 focus:bg-white/10 transition-all">
+                      <SelectValue placeholder="Select your solution" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="solar">Solar Solution</SelectItem>
+                      <SelectItem value="battery">Battery Solution</SelectItem>
+                      <SelectItem value="solar-battery">Solar + Battery Solution</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="hvacMessage" className="text-white">Message (Optional)</Label>
+                <Textarea
+                  id="hvacMessage"
+                  placeholder="Write something here..."
+                  className="min-h-[100px] border-white/20 bg-white/5 backdrop-blur-md text-white placeholder:text-white/50 focus:border-white/40 focus:bg-white/10 transition-all"
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                />
+              </div>
+
+              <Button
+                type="submit"
+                className="w-full bg-white py-6 text-lg font-semibold text-[#0a1628] hover:bg-gray-100"
               >
-                <SelectTrigger className="border-input bg-input text-primary-foreground">
-                  <SelectValue placeholder="Select your province" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="alberta">Alberta</SelectItem>
-                  <SelectItem value="bc">British Columbia</SelectItem>
-                  <SelectItem value="nova-scotia">Nova Scotia</SelectItem>
-                  <SelectItem value="ontario">Ontario</SelectItem>
-                  <SelectItem value="pei">Prince Edward Island</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-            <div className="space-y-2">
-              <Label className="text-primary-foreground">
-                What energy solution you are looking for? <span className="text-destructive">*</span>
-              </Label>
-              <Select
-                value={formData.solution}
-                onValueChange={(value) => setFormData({ ...formData, solution: value })}
-                required
-              >
-                <SelectTrigger className="border-input bg-input text-primary-foreground">
-                  <SelectValue placeholder="Select energy solution" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="solar">Solar Solution</SelectItem>
-                  <SelectItem value="battery">Battery Solution</SelectItem>
-                  <SelectItem value="solar-battery">Solar + Battery Solution</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
+                Submit
+              </Button>
+            </form>
           </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="hvacMessage" className="text-primary-foreground">Tell us about your need (Optional)</Label>
-            <Textarea
-              id="hvacMessage"
-              placeholder="Tell us about your need"
-              className="min-h-[120px] border-input bg-input text-primary-foreground placeholder:text-muted-foreground"
-              value={formData.message}
-              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-            />
-          </div>
-
-          <div className="flex items-start space-x-3">
-            <Checkbox
-              id="hvacSubscribe"
-              checked={formData.subscribe}
-              onCheckedChange={(checked) => setFormData({ ...formData, subscribe: checked as boolean })}
-              className="border-input data-[state=checked]:bg-primary"
-            />
-            <Label htmlFor="hvacSubscribe" className="text-sm leading-relaxed text-primary-foreground/90">
-              I would like to join the Solar X Canada SMS and mailing list to receive newsletters, updates, and event
-              invitations from Solar X Canada.
-            </Label>
-          </div>
-
-          <Button type="submit" className="w-full py-6 text-lg font-semibold">
-            Submit Survey
-          </Button>
-        </form>
         </div>
       </div>
     </section>

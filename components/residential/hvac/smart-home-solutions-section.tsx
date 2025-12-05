@@ -1,3 +1,6 @@
+"use client"
+
+import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
@@ -12,49 +15,111 @@ const brandLogos = [
 ]
 
 export function SmartHomeSolutionsSection() {
-  return (
-    <section className="bg-secondary py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Smart Home Solutions</h2>
-          <div className="mt-4 text-lg text-muted-foreground">
-            {solutions[0].name}
-          </div>
-        </div>
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
 
-        {/* Brand Logos */}
-        <div className="mb-12 flex items-center justify-center gap-12">
-          {brandLogos.map((brand) => (
-            <div
-              key={brand.name}
-              className="flex items-center justify-center rounded-lg bg-background p-6 grayscale transition-all hover:grayscale-0"
-            >
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting)
+      },
+      { threshold: 0.05, rootMargin: '0px 0px -100px 0px' }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
+  }, [])
+
+  return (
+    <section 
+      ref={sectionRef}
+      className="relative py-0"
+    >
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1527741891222-bb6908f0a296?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTB8fGNvbmNyZXRlfGVufDB8MHwwfHx8MA%3D%3D')`,
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/40 to-black/50" />
+      </div>
+      
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left Side - Content */}
+          <div 
+            className={`space-y-8 transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              isVisible 
+                ? 'opacity-100 translate-y-0 scale-100' 
+                : 'opacity-0 translate-y-16 scale-95'
+            }`}
+          >
+            {/* Title and Sub-navigation */}
+            <div>
+              <h2 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
+                Smart Home Solutions
+              </h2>
+              <div className="mt-4 text-lg text-white/90">
+                {solutions[0].name}
+              </div>
+            </div>
+
+            {/* Brand Logos */}
+            <div className="flex items-center gap-4">
+              {brandLogos.map((brand) => (
+                <div
+                  key={brand.name}
+                  className="flex items-center justify-center rounded-lg bg-white/15 p-3 backdrop-blur-sm transition-all hover:bg-white/25"
+                >
+                  <Image
+                    src={brand.logo}
+                    alt={`Logo of ${brand.name}`}
+                    width={80}
+                    height={48}
+                    className="h-auto w-full max-w-[80px] object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Learn More Button */}
+            <div>
+              <Button 
+                size="lg"
+                variant="ghost"
+                className="glass-pill-button flex items-center gap-2 text-lg font-semibold"
+              >
+                Learn More
+                <ArrowRight className="h-5 w-5" />
+              </Button>
+            </div>
+          </div>
+
+          {/* Right Side - Thermostat Image */}
+          <div 
+            className={`hidden lg:block relative h-full min-h-[400px] flex items-center justify-end transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] delay-300 ${
+              isVisible 
+                ? 'opacity-100 translate-x-0 scale-100' 
+                : 'opacity-0 translate-x-20 scale-90'
+            }`}
+          >
+            <div className="relative w-full h-full drop-shadow-2xl" style={{ transform: 'scale(0.48)', transformOrigin: 'right center' }}>
               <Image
-                src={brand.logo}
-                alt={`Logo of ${brand.name}`}
-                width={150}
-                height={80}
-                className="h-auto w-full object-contain"
+                src="/newthermostat.png"
+                alt="Smart thermostat"
+                fill
+                className="object-contain object-right"
               />
             </div>
-          ))}
-        </div>
-
-        {/* Image Section */}
-        <div className="relative h-[400px] w-full overflow-hidden rounded-xl">
-          <Image
-            src="/placeholder.jpg"
-            alt="Black smart thermostat showing the current temperature"
-            fill
-            className="object-cover"
-          />
-        </div>
-
-        <div className="mt-8 text-center">
-          <Button variant="outline" className="flex items-center gap-2 mx-auto">
-            Learn More
-            <ArrowRight className="h-4 w-4" />
-          </Button>
+          </div>
         </div>
       </div>
     </section>

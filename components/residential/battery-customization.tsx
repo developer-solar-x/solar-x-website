@@ -111,7 +111,7 @@ export function BatteryCustomization() {
 
           <div className="mt-8">
           {/* Outer dark container matching reference layout */}
-          <div className="rounded-2xl border border-slate-900 bg-gradient-to-br from-[#020617] via-[#020617] to-[#050816] p-5 sm:p-7 lg:p-9 shadow-[0_30px_120px_rgba(0,0,0,0.85)]">
+          <div className="rounded-2xl border border-slate-900 bg-gradient-to-br from-[#020617] via-[#020617] to-[#050816] p-5 sm:p-7 lg:p-9">
             <div className="grid gap-6 md:grid-cols-[minmax(0,1.7fr)_minmax(0,1.1fr)]">
               {/* Dark, high-contrast Essential Solutions card */}
               <Card className="relative overflow-hidden rounded-xl border border-slate-800 bg-[#050816] min-h-[320px]">
@@ -146,8 +146,8 @@ export function BatteryCustomization() {
 
                     {/* Simple visual stand-in where inverter + battery imagery would live */}
                     <div className="mt-2 flex flex-wrap items-center justify-center gap-10 rounded-2xl border border-slate-700/70 bg-[#0b1022] px-6 py-8">
-                      <div className="h-32 w-28 rounded-xl border border-slate-500/60 bg-gradient-to-b from-slate-200 to-slate-100 shadow-inner" />
-                      <div className="h-40 w-32 rounded-xl border border-slate-500/60 bg-gradient-to-b from-slate-200 to-slate-100 shadow-inner" />
+                      <div className="h-32 w-28 rounded-xl border border-slate-500/60 bg-gradient-to-b from-slate-200 to-slate-100" />
+                      <div className="h-40 w-32 rounded-xl border border-slate-500/60 bg-gradient-to-b from-slate-200 to-slate-100" />
                     </div>
                   </div>
                 </CardContent>
@@ -156,7 +156,7 @@ export function BatteryCustomization() {
               {/* Right column: stacked cards matching reference layout */}
               <div className="flex h-full flex-col gap-5">
                 {/* Battery Last Days card */}
-                <Card className="rounded-xl border border-slate-800 bg-[#0b1022] text-slate-50 shadow-[0_20px_60px_rgba(0,0,0,0.7)] min-h-[132px]">
+                <Card className="rounded-xl border border-slate-800 bg-[#0b1022] text-slate-50 min-h-[132px]">
                   <CardContent className="flex h-full items-center justify-between px-6 py-5 sm:px-7 sm:py-6 lg:px-8 lg:py-7">
                     <div className="space-y-2">
                       <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-300/70">
@@ -173,7 +173,7 @@ export function BatteryCustomization() {
                 </Card>
 
                 {/* Supporting Appliances card */}
-                <Card className="flex-1 rounded-xl border border-slate-800 bg-[#0b1022] text-slate-50 shadow-[0_24px_80px_rgba(0,0,0,0.75)]">
+                <Card className="flex-1 rounded-xl border border-slate-800 bg-[#0b1022] text-slate-50">
                   <CardContent className="h-full p-6 sm:p-8 lg:p-9">
                     <div className="flex h-full flex-col justify-between">
                       <div className="space-y-2">
@@ -188,7 +188,7 @@ export function BatteryCustomization() {
                             const Icon = appliance.icon
                             return (
                             <div key={index} className="flex flex-col items-center gap-3">
-                              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#050816] text-[#facc15] shadow-[0_0_0_1px_rgba(148,163,184,0.4)]">
+                              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#050816] text-[#facc15]">
                                 <Icon className="h-5 w-5" />
                               </span>
                               <span className="text-slate-100 text-center leading-snug">

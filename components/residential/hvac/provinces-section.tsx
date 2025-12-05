@@ -6,12 +6,12 @@ const provinces = [
   {
     name: "Nova Scotia",
     description: "A bright blue sky filled with soft white clouds, with boats parking over the wharf in Nova Scotia.",
-    image: "/placeholder.jpg", // Replace with actual province image
+    image: "/aerial-view-of-house-with-solar-panels-on-roof--dr.jpg",
   },
   {
     name: "Ontario",
     description: "Toronto's skyline at dusk, with city lights sparkling under a deepening twilight sky in Ontario.",
-    image: "/placeholder.jpg", // Replace with actual province image
+    image: "/modern-house-with-solar-panels-at-dusk--dark-moody.jpg",
   },
 ]
 

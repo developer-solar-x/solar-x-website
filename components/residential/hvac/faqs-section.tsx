@@ -1,12 +1,8 @@
 "use client"
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import { ChevronRight, ArrowRight } from "lucide-react"
 
 const faqs = [
   {
@@ -36,33 +32,75 @@ const faqs = [
 ]
 
 export function HvacFaqsSection() {
+  // Split FAQs into two columns
+  const leftColumnFaqs = faqs.slice(0, 3)
+  const rightColumnFaqs = faqs.slice(3, 6)
+
   return (
     <section className="bg-background py-20">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">FAQs</h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        {/* Header Section - Left Aligned */}
+        <div className="mb-12">
+          <h2 className="text-4xl font-bold text-foreground sm:text-5xl mb-4">
+            FAQs
+          </h2>
+          <p className="text-lg text-foreground">
             We're here to answer all your questions
           </p>
         </div>
 
-        <Accordion type="single" collapsible className="w-full">
-          {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index}`}>
-              <AccordionTrigger className="text-left text-lg font-semibold">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+        {/* Two Column FAQ Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-8 relative">
+          {/* Left Column */}
+          <div className="space-y-0">
+            {leftColumnFaqs.map((faq, index) => (
+              <div key={index} className="border-b border-gray-200 last:border-b-0">
+                <Link 
+                  href={`/residential/faq#${faq.question.toLowerCase().replace(/\s+/g, '-')}`}
+                  className="flex items-center justify-between py-4 group hover:opacity-80 transition-opacity"
+                >
+                  <span className="text-base text-foreground font-normal pr-4">
+                    {faq.question}
+                  </span>
+                  <ChevronRight className="w-4 h-4 text-foreground shrink-0" />
+                </Link>
+              </div>
+            ))}
+            
+            {/* Button below left column */}
+            <div className="mt-6">
+              <Link href="/residential/faq">
+                <Button 
+                  size="lg"
+                  variant="ghost"
+                  className="glass-pill-button flex items-center gap-2 text-lg font-semibold"
+                >
+                  Browse all FAQs
+                  <ArrowRight className="h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
+          </div>
 
-        <div className="mt-8 text-center">
-          <Button variant="outline">
-            Browse all FAQs
-          </Button>
+          {/* Vertical Divider */}
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gray-300 -translate-x-1/2" />
+
+          {/* Right Column */}
+          <div className="space-y-0">
+            {rightColumnFaqs.map((faq, index) => (
+              <div key={index} className="border-b border-gray-200 last:border-b-0">
+                <Link 
+                  href={`/residential/faq#${faq.question.toLowerCase().replace(/\s+/g, '-')}`}
+                  className="flex items-center justify-between py-4 group hover:opacity-80 transition-opacity"
+                >
+                  <span className="text-base text-foreground font-normal pr-4">
+                    {faq.question}
+                  </span>
+                  <ChevronRight className="w-4 h-4 text-foreground shrink-0" />
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
