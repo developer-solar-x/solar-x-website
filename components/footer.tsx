@@ -81,11 +81,11 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="mailto:info@solarx.com"
+                  href="mailto:info@solar-x.ca"
                   className="text-white/70 hover:text-white text-sm flex items-center gap-2 transition-colors"
                 >
                   <Mail className="w-4 h-4" />
-                  info@solarx.com
+                  info@solar-x.ca
                 </Link>
               </li>
               <li className="pt-2">

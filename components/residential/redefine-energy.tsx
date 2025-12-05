@@ -1,17 +1,22 @@
-import { DollarSign, Home, Zap, Battery, Clock, Leaf } from "lucide-react"
+import { Zap, Battery, Clock, Leaf } from "lucide-react"
 import Image from "next/image"
 
-const benefits = [
+const topRowCards = [
   {
-    icon: DollarSign,
     title: "Energy Saving",
     description: "A permanent answer to rising electricity rates",
+    image: "/newhero/energysavings.jpg",
+    hasImage: true,
   },
   {
-    icon: Home,
     title: "Increase Property Value",
     description: "The smartest upgrade for your home",
+    image: "/newhero/property value.jpg",
+    hasImage: true,
   },
+]
+
+const bottomRowCards = [
   {
     icon: Zap,
     title: "Energy Efficiency",
@@ -38,37 +43,65 @@ export function RedefineEnergy() {
   return (
     <section className="bg-secondary py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-2">
-          {/* Left side - Benefits */}
-          <div>
-            <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Redefine Your Home's Energy</h2>
-            <p className="mt-2 text-lg text-muted-foreground">All about Savings</p>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-4 md:gap-4">
+          {/* Top Row - Left Card: Energy Saving */}
+          <div className="group relative overflow-hidden rounded-xl bg-card p-6 shadow-lg transition-shadow hover:shadow-xl">
+            <div className="relative aspect-[3/4] w-full mb-4 overflow-hidden rounded-lg">
+              <Image
+                src={topRowCards[0].image}
+                alt={`${topRowCards[0].title} - ${topRowCards[0].description} - Solar energy savings for homeowners`}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <h3 className="text-lg font-bold text-foreground">{topRowCards[0].title}</h3>
+            <p className="mt-2 text-sm text-muted-foreground">{topRowCards[0].description}</p>
+          </div>
 
-            <div className="mt-10 grid gap-6 sm:grid-cols-2">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="flex gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                    <benefit.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground">{benefit.title}</h4>
-                    <p className="mt-1 text-sm text-muted-foreground">{benefit.description}</p>
-                  </div>
-                </div>
-              ))}
+          {/* Top Row - Center Large Banner */}
+          <div className="relative col-span-1 md:col-span-2 overflow-hidden rounded-xl shadow-xl">
+            <div className="relative h-[300px] md:h-[400px]">
+              <Image
+                src="/aerial-view-of-house-with-solar-panels-on-roof--dr.jpg"
+                alt="Aerial view of residential neighborhood with solar panels on rooftops - renewable energy home installation"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                <h2 className="text-2xl md:text-4xl font-bold text-white">Redefine Your Home's Energy</h2>
+                <p className="mt-2 text-base md:text-lg text-white/90">All about Savings</p>
+              </div>
             </div>
           </div>
 
-          {/* Right side - Image */}
-          {/* Explicit responsive heights so <Image fill> always has a non-zero parent height */}
-          <div className="relative h-[280px] sm:h-[340px] lg:h-[400px]">
-            <Image
-              src="/aerial-view-of-house-with-solar-panels-on-roof--dr.jpg"
-              alt="Aerial view of residential neighborhood with solar panels"
-              fill
-              className="rounded-xl object-cover"
-            />
+          {/* Top Row - Right Card: Increase Property Value */}
+          <div className="group relative overflow-hidden rounded-xl bg-card p-6 shadow-lg transition-shadow hover:shadow-xl">
+            <div className="relative aspect-[3/4] w-full mb-4 overflow-hidden rounded-lg">
+              <Image
+                src={topRowCards[1].image}
+                alt={`${topRowCards[1].title} - ${topRowCards[1].description} - Increase home value with solar panels`}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <h3 className="text-lg font-bold text-foreground">{topRowCards[1].title}</h3>
+            <p className="mt-2 text-sm text-muted-foreground">{topRowCards[1].description}</p>
           </div>
+
+          {/* Bottom Row Cards */}
+          {bottomRowCards.map((card, index) => {
+            const Icon = card.icon
+            return (
+              <div key={index} className="group relative overflow-hidden rounded-xl bg-card p-6 shadow-lg transition-shadow hover:shadow-xl">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 mb-4">
+                  <Icon className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="text-lg font-bold text-foreground">{card.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{card.description}</p>
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

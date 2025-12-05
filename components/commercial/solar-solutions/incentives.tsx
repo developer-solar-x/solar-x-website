@@ -89,7 +89,7 @@ export function IncentivesSection() {
                   </div>
                 </div>
                 <div className="mt-6">
-                  <Link href="#contact">
+                  <Link href="/contact">
                     <Button className="w-full bg-primary hover:bg-primary/90">
                       Get a Free Quote
                     </Button>

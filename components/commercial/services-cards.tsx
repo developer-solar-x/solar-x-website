@@ -6,19 +6,19 @@ const services = [
   {
     title: "Solar Solutions",
     description: "Rooftop solar panels capturing sunlight, contributing to eco-friendly energy solutions.",
-    image: "/commercial-solar-panels-on-warehouse-building.jpg",
+    image: "/images/commercialsolar.jpg",
     href: "/commercial#solar",
   },
   {
     title: "Battery Solutions",
     description: "A house with a battery storage on the wall, representing a commitment to renewable energy sources.",
-    image: "/solar battery.png",
+    image: "/images/commercialbatterysolutions.jpg",
     href: "/commercial#battery",
   },
   {
     title: "EV Charger",
     description: "A commercial EV charging station with a car plugged in, symbolizing the future of electric mobility.",
-    image: "/ev-charger-and-portable-power-stations-solar-equip.jpg",
+    image: "/images/commercialev.jpg",
     href: "/commercial/ev-charging-solutions",
   },
 ]
@@ -36,18 +36,18 @@ export function CommercialServicesCards() {
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="flex flex-col sm:flex-row gap-6">
           {services.map((service) => (
             <Link
               key={service.title}
               href={service.href}
-              className="group relative h-[400px] overflow-hidden rounded-xl"
+              className="group relative h-[400px] flex-1 overflow-hidden transition-all duration-500 ease-in-out sm:hover:flex-[2]"
             >
               <Image
                 src={service.image || "/placeholder.svg"}
                 alt={service.description}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">

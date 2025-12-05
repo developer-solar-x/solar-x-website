@@ -1,7 +1,9 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import type React from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ScrollReveal } from "@/components/scroll-reveal"
 
@@ -25,6 +27,12 @@ export function HeroSection() {
     return () => clearInterval(interval)
   }, [])
 
+  const handleVideoEnd = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+    const video = e.currentTarget
+    video.currentTime = 0
+    video.play()
+  }
+
   return (
     <section className="relative overflow-hidden min-h-screen flex items-center">
       {/* Static image background as immediate fallback */}
@@ -39,7 +47,7 @@ export function HeroSection() {
       </div>
 
       {/* Background video carousel that fades in when ready */}
-      <div className="pointer-events-none absolute inset-0">
+      <div className="pointer-events-none absolute inset-0 bg-black">
         {landingVideos.map((src, index) => (
           <video
             key={src}
@@ -48,14 +56,21 @@ export function HeroSection() {
             muted
             loop
             playsInline
+            preload="auto"
             onCanPlay={() => setIsVideoReady(true)}
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${
-              index === currentVideoIndex && isVideoReady ? "opacity-100" : "opacity-0"
+            onEnded={handleVideoEnd}
+            onError={(e) => {
+              const video = e.currentTarget
+              video.currentTime = 0
+              video.play().catch(() => {})
+            }}
+            className={`absolute inset-0 h-full w-full object-cover ${
+              index === currentVideoIndex && isVideoReady ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
             }`}
           />
         ))}
         {/* Overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/40 z-20" />
       </div>
 
       {/* Subtle non-blocking hint while video is initializing */}
@@ -84,12 +99,14 @@ export function HeroSection() {
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <Button
-                size="lg"
-                className="bg-[#ff4a4a] text-white hover:bg-[#e22f2f] rounded-full px-8 py-6 text-base font-semibold shadow-lg shadow-black/40 border border-white/10"
-              >
-                Request a Quote
-              </Button>
+              <Link href="/contact">
+                <Button
+                  size="lg"
+                  className="bg-[#ff4a4a] text-white hover:bg-[#e22f2f] rounded-full px-8 py-6 text-base font-semibold shadow-lg shadow-black/40 border border-white/10"
+                >
+                  Request a Quote
+                </Button>
+              </Link>
               <Button
                 size="lg"
                 className="bg-white text-[#0a1628] hover:bg-gray-100 rounded-full px-8 py-6 text-base font-medium shadow-md shadow-black/30 border border-transparent"

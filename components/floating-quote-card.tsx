@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { X } from "lucide-react"
 import Image from "next/image"
@@ -38,7 +39,7 @@ export function FloatingQuoteCard() {
 
   return (
     <div className="fixed bottom-6 right-6 z-50 animate-in slide-in-from-right-5 duration-300">
-      <div className="bg-background rounded-xl shadow-2xl border border-border overflow-hidden w-64">
+      <div className="bg-background rounded-xl shadow-2xl border border-border overflow-hidden w-80 md:w-96">
         {/* Close Button */}
         <button
           onClick={() => setIsVisible(false)}
@@ -49,7 +50,7 @@ export function FloatingQuoteCard() {
         </button>
 
         {/* Image slideshow */}
-        <div className="relative h-28 overflow-hidden">
+        <div className="relative h-36 md:h-40 overflow-hidden">
           {floatingImages.map((image, index) => (
             <Image
               key={image.src}
@@ -65,11 +66,13 @@ export function FloatingQuoteCard() {
         </div>
 
         {/* Content */}
-        <div className="p-4 text-center space-y-3">
-          <p className="text-sm font-medium text-foreground">Find Out Your Solar Savings in 15 Seconds</p>
-          <Button className="w-full bg-[#1a2b6b] text-white hover:bg-[#152254] rounded-full text-sm" suppressHydrationWarning>
-            Request a Quote
-          </Button>
+        <div className="p-5 md:p-6 text-center space-y-4">
+          <p className="text-base md:text-lg font-semibold text-[#ff4a4a]">Find Out Your Solar Savings in 15 Seconds</p>
+          <Link href="/contact" className="w-full block">
+            <Button className="w-full bg-[#ff4a4a] text-white hover:bg-[#e22f2f] rounded-full text-sm md:text-base font-semibold shadow-lg" suppressHydrationWarning>
+              Request a Quote
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

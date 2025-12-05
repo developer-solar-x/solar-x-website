@@ -71,7 +71,7 @@ export function CommercialSolarFAQs() {
         </Accordion>
 
         <div className="mt-8 text-center">
-          <Link href="#contact">
+          <Link href="/contact">
             <Button variant="outline" size="lg">
               Contact Us for More Information
             </Button>

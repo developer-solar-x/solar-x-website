@@ -5,7 +5,7 @@ import { NewBrunswickSavingsCalculator } from "@/components/provinces/new-brunsw
 import { WhyNewBrunswickSection } from "@/components/provinces/new-brunswick/why-new-brunswick"
 import { ServiceAreaSection } from "@/components/provinces/new-brunswick/service-area"
 import { TrustSection } from "@/components/provinces/new-brunswick/trust-section"
-import { ContactSection } from "@/components/residential/contact-section"
+import { ContactUsSection } from "@/components/contact-us-section"
 import { Footer } from "@/components/footer"
 import { FloatingQuoteCard } from "@/components/floating-quote-card"
 
@@ -19,7 +19,7 @@ export default function NewBrunswickPage() {
       <WhyNewBrunswickSection />
       <ServiceAreaSection />
       <TrustSection />
-      <ContactSection />
+      <ContactUsSection />
       <Footer />
       <FloatingQuoteCard />
     </main>

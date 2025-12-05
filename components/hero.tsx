@@ -3,6 +3,7 @@
 import type React from "react"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -50,9 +51,11 @@ export function ResidentialHero() {
               Discover Sustainable Savings Through Reliable Solar and Battery Solutions
             </p>
             <div className="mt-8">
-              <Button size="lg" className="bg-primary px-8 py-6 text-lg font-semibold text-white hover:bg-primary/90">
-                Request Consultation
-              </Button>
+              <Link href="/contact">
+                <Button size="lg" className="bg-primary px-8 py-6 text-lg font-semibold text-white hover:bg-primary/90">
+                  Request Consultation
+                </Button>
+              </Link>
             </div>
           </div>
 

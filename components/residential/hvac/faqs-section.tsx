@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { ChevronRight, ArrowRight } from "lucide-react"
 
 const faqs = [
   {
@@ -50,40 +49,23 @@ export function HvacFaqsSection() {
         </div>
 
         {/* Two Column FAQ Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-8 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-8">
           {/* Left Column */}
           <div className="space-y-0">
             {leftColumnFaqs.map((faq, index) => (
               <div key={index} className="border-b border-gray-200 last:border-b-0">
                 <Link 
                   href="/about#faqs"
-                  className="flex items-center justify-between py-4 group hover:opacity-80 transition-opacity"
+                  className="flex items-start py-4 group hover:opacity-80 transition-opacity"
                 >
-                  <span className="text-base text-foreground font-normal pr-4">
+                  <span className="text-foreground mr-2">›</span>
+                  <span className="text-base text-foreground font-normal">
                     {faq.question}
                   </span>
-                  <ChevronRight className="w-4 h-4 text-foreground shrink-0" />
                 </Link>
               </div>
             ))}
-            
-            {/* Button below left column */}
-            <div className="mt-6">
-              <Link href="/about#faqs">
-                <Button 
-                  size="lg"
-                  variant="ghost"
-                  className="glass-pill-button flex items-center gap-2 text-lg font-semibold"
-                >
-                  Browse all FAQs
-                  <ArrowRight className="h-5 w-5" />
-                </Button>
-              </Link>
-            </div>
           </div>
-
-          {/* Vertical Divider */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gray-300 -translate-x-1/2" />
 
           {/* Right Column */}
           <div className="space-y-0">
@@ -91,21 +73,30 @@ export function HvacFaqsSection() {
               <div key={index} className="border-b border-gray-200 last:border-b-0">
                 <Link 
                   href="/about#faqs"
-                  className="flex items-center justify-between py-4 group hover:opacity-80 transition-opacity"
+                  className="flex items-start py-4 group hover:opacity-80 transition-opacity"
                 >
-                  <span className="text-base text-foreground font-normal pr-4">
+                  <span className="text-foreground mr-2">›</span>
+                  <span className="text-base text-foreground font-normal">
                     {faq.question}
                   </span>
-                  <ChevronRight className="w-4 h-4 text-foreground shrink-0" />
                 </Link>
               </div>
             ))}
           </div>
         </div>
+
+        {/* Button at bottom center */}
+        <div className="text-center mt-8">
+          <Link href="/about#faqs">
+            <Button 
+              size="lg"
+              className="bg-[#1a2b6b] hover:bg-[#152254] text-white rounded-lg px-8 py-6 text-base font-semibold"
+            >
+              Browse all FAQs
+            </Button>
+          </Link>
+        </div>
       </div>
     </section>
   )
 }
-
-
-

@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ScrollReveal } from "@/components/scroll-reveal"
@@ -325,12 +326,14 @@ export function InstallationProcessSection() {
         {/* Request a Quote Button at Bottom */}
         <ScrollReveal direction="up" delay={0.8} duration={0.8} threshold={0.3} triggerOnce={false}>
           <div className="mt-16 text-center">
-            <Button 
-              size="lg" 
-              className="bg-[#1a2b6b] hover:bg-[#152254] text-white rounded-full px-8 py-6 text-lg font-semibold transition-all duration-300"
-            >
-              Request a Quote
-            </Button>
+            <Link href="/contact">
+              <Button 
+                size="lg" 
+                className="bg-[#1a2b6b] hover:bg-[#152254] text-white rounded-full px-8 py-6 text-lg font-semibold transition-all duration-300"
+              >
+                Request a Quote
+              </Button>
+            </Link>
           </div>
         </ScrollReveal>
       </div>

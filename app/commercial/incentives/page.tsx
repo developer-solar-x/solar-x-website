@@ -4,7 +4,7 @@ import { Footer } from "@/components/footer"
 import { FloatingQuoteCard } from "@/components/floating-quote-card"
 import { IncentivesHero } from "@/components/commercial/incentives-hero"
 import { IncentivesSectionNew } from "@/components/commercial/incentives-section-new"
-import { ContactSection } from "@/components/residential/contact-section"
+import { ContactUsSection } from "@/components/contact-us-section"
 
 export default function CommercialIncentivesPage() {
   return (
@@ -13,7 +13,7 @@ export default function CommercialIncentivesPage() {
       <Header />
       <IncentivesHero />
       <IncentivesSectionNew />
-      <ContactSection />
+      <ContactUsSection />
       <Footer />
       <FloatingQuoteCard />
     </main>

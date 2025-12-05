@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 
@@ -26,12 +27,14 @@ export function BatteryHero() {
             Install a Home Battery
           </p>
           <div className="mt-10">
-            <Button
-              size="lg"
-              className="bg-[#ff4a4a] text-white hover:bg-[#e22f2f] rounded-full px-8 py-6 text-base font-semibold shadow-lg shadow-black/40 border border-white/10"
-            >
-              Request a Quote
-            </Button>
+            <Link href="/contact">
+              <Button
+                size="lg"
+                className="bg-[#ff4a4a] text-white hover:bg-[#e22f2f] rounded-full px-8 py-6 text-base font-semibold shadow-lg shadow-black/40 border border-white/10"
+              >
+                Request a Quote
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

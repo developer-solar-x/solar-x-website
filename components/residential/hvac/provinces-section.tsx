@@ -1,17 +1,31 @@
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
+import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
 const provinces = [
   {
+    name: "Alberta",
+    description: "Alberta offers exceptional HVAC solutions with energy-efficient heating and cooling systems designed for Canada's sunniest province.",
+    image: "/alberta.jpg",
+    href: "/provinces/alberta",
+  },
+  {
+    name: "New Brunswick",
+    description: "Reliable HVAC systems designed for Atlantic Canada's climate, ensuring year-round comfort and energy efficiency.",
+    image: "/newbrunswick.jpg",
+    href: "/provinces/new-brunswick",
+  },
+  {
     name: "Nova Scotia",
-    description: "A bright blue sky filled with soft white clouds, with boats parking over the wharf in Nova Scotia.",
-    image: "/aerial-view-of-house-with-solar-panels-on-roof--dr.jpg",
+    description: "High-performance HVAC installations across Nova Scotia, engineered for Atlantic weather conditions with comprehensive warranties.",
+    image: "/ontario.jpg",
+    href: "/provinces/nova-scotia",
   },
   {
     name: "Ontario",
-    description: "Toronto's skyline at dusk, with city lights sparkling under a deepening twilight sky in Ontario.",
-    image: "/modern-house-with-solar-panels-at-dusk--dark-moody.jpg",
+    description: "Custom HVAC solutions for Ontario homeowners, maximizing comfort and savings with affordable installation options and instant rebates.",
+    image: "/novascotia.jpg",
+    href: "/provinces/ontario",
   },
 ]
 
@@ -23,7 +37,7 @@ export function ProvincesSection() {
           <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Provinces</h2>
         </div>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2">
           {provinces.map((province) => (
             <div
               key={province.name}
@@ -39,16 +53,16 @@ export function ProvincesSection() {
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="text-xl font-bold text-white">{province.name}</h3>
                 <p className="mt-2 text-sm text-gray-300 line-clamp-2">{province.description}</p>
+                <Link
+                  href={province.href}
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#ff4a4a] hover:text-[#e22f2f] transition-colors"
+                >
+                  Learn More
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <Button variant="outline" className="flex items-center gap-2 mx-auto">
-            Learn More
-            <ArrowRight className="h-4 w-4" />
-          </Button>
         </div>
       </div>
     </section>

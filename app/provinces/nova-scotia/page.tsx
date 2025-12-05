@@ -5,7 +5,7 @@ import { NovaScotiaSavingsCalculator } from "@/components/provinces/nova-scotia/
 import { WhyNovaScotiaSection } from "@/components/provinces/nova-scotia/why-nova-scotia"
 import { ServiceAreaSection } from "@/components/provinces/nova-scotia/service-area"
 import { TrustSection } from "@/components/provinces/nova-scotia/trust-section"
-import { ContactSection } from "@/components/residential/contact-section"
+import { ContactUsSection } from "@/components/contact-us-section"
 import { Footer } from "@/components/footer"
 import { FloatingQuoteCard } from "@/components/floating-quote-card"
 
@@ -19,7 +19,7 @@ export default function NovaScotiaPage() {
       <WhyNovaScotiaSection />
       <ServiceAreaSection />
       <TrustSection />
-      <ContactSection />
+      <ContactUsSection />
       <Footer />
       <FloatingQuoteCard />
     </main>

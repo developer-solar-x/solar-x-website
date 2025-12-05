@@ -60,6 +60,8 @@ export function TestimonialsSection() {
   const scrollRef = useRef<HTMLDivElement>(null)
   const [testimonials, setTestimonials] = useState<Review[]>(fallbackTestimonials)
   const [isLoading, setIsLoading] = useState(true)
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
 
   useEffect(() => {
     // Fetch Google reviews
@@ -82,15 +84,73 @@ export function TestimonialsSection() {
     fetchReviews()
   }, [])
 
-  const scroll = (direction: "left" | "right") => {
+  // Auto-scroll carousel
+  useEffect(() => {
+    if (!isAutoPlaying || isLoading || testimonials.length === 0) return
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => {
+        const nextIndex = (prevIndex + 1) % testimonials.length
+        scrollToIndex(nextIndex)
+        return nextIndex
+      })
+    }, 5000) // Change slide every 5 seconds
+
+    return () => clearInterval(interval)
+  }, [isAutoPlaying, isLoading, testimonials.length])
+
+  const scrollToIndex = (index: number) => {
     if (scrollRef.current) {
-      const scrollAmount = 400
-      scrollRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
+      const cardWidth = 350 + 24 // card width + gap
+      scrollRef.current.scrollTo({
+        left: index * cardWidth,
         behavior: "smooth",
       })
     }
   }
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const cardWidth = 350 + 24 // card width + gap
+      const newIndex = direction === "left" 
+        ? (currentIndex - 1 + testimonials.length) % testimonials.length
+        : (currentIndex + 1) % testimonials.length
+      
+      setCurrentIndex(newIndex)
+      scrollToIndex(newIndex)
+      setIsAutoPlaying(false) // Pause auto-play when user manually navigates
+      
+      // Resume auto-play after 10 seconds
+      setTimeout(() => setIsAutoPlaying(true), 10000)
+    }
+  }
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index)
+    scrollToIndex(index)
+    setIsAutoPlaying(false)
+    setTimeout(() => setIsAutoPlaying(true), 10000)
+  }
+
+  // Track scroll position to update current index
+  useEffect(() => {
+    const handleScroll = () => {
+      if (scrollRef.current) {
+        const cardWidth = 350 + 24
+        const scrollLeft = scrollRef.current.scrollLeft
+        const newIndex = Math.round(scrollLeft / cardWidth)
+        if (newIndex !== currentIndex && newIndex >= 0 && newIndex < testimonials.length) {
+          setCurrentIndex(newIndex)
+        }
+      }
+    }
+
+    const scrollElement = scrollRef.current
+    if (scrollElement) {
+      scrollElement.addEventListener('scroll', handleScroll)
+      return () => scrollElement.removeEventListener('scroll', handleScroll)
+    }
+  }, [currentIndex, testimonials.length])
 
   return (
     <section className="py-16 md:py-24 bg-[#f8f9fa]">
@@ -124,11 +184,14 @@ export function TestimonialsSection() {
         </ScrollReveal>
 
         {/* Testimonials Carousel */}
-        <div
-          ref={scrollRef}
-          className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-        >
+        <div className="relative">
+          <div
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-hidden scrollbar-hide pb-4 snap-x snap-mandatory"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            onMouseEnter={() => setIsAutoPlaying(false)}
+            onMouseLeave={() => setIsAutoPlaying(true)}
+          >
           {isLoading ? (
             <div className="flex-shrink-0 w-[350px] bg-white rounded-xl p-6 shadow-sm border border-border">
               <div className="animate-pulse space-y-4">
@@ -182,6 +245,25 @@ export function TestimonialsSection() {
                 <p className="text-foreground/70 text-sm leading-relaxed line-clamp-6">{testimonial.text}</p>
               </ScrollReveal>
             ))
+          )}
+          </div>
+
+          {/* Carousel Indicators */}
+          {!isLoading && testimonials.length > 0 && (
+            <div className="flex justify-center gap-2 mt-8">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === currentIndex
+                      ? "w-8 bg-[#ff4a4a]"
+                      : "w-2 bg-gray-300 hover:bg-gray-400"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
           )}
         </div>
       </div>

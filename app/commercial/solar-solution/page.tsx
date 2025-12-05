@@ -5,7 +5,7 @@ import { IncentivesSection } from "@/components/commercial/solar-solutions/incen
 import { SavingsCalculatorSection } from "@/components/commercial/solar-solutions/savings-calculator"
 import { InstallationProcessSection } from "@/components/commercial/solar-solutions/installation-process"
 import { CommercialSolarFAQs } from "@/components/commercial/solar-solutions/faqs"
-import { ContactSection } from "@/components/residential/contact-section"
+import { ContactUsSection } from "@/components/contact-us-section"
 import { Footer } from "@/components/footer"
 import { FloatingQuoteCard } from "@/components/floating-quote-card"
 
@@ -19,7 +19,7 @@ export default function CommercialSolarSolutionPage() {
       <SavingsCalculatorSection />
       <InstallationProcessSection />
       <CommercialSolarFAQs />
-      <ContactSection />
+      <ContactUsSection />
       <Footer />
       <FloatingQuoteCard />
     </main>

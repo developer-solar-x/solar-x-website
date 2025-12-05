@@ -10,6 +10,7 @@ import { PowerScenarios } from "@/components/residential/power-scenarios"
 import { PortablePowerStations } from "@/components/residential/portable-power-stations"
 import { ProvincesServedSection } from "@/components/residential/solar-solutions/provinces-served"
 import { InstallationProcess } from "@/components/residential/installation-process"
+import { ContactUsSection } from "@/components/contact-us-section"
 
 export default function BatterySolutionsPage() {
   return (
@@ -24,6 +25,7 @@ export default function BatterySolutionsPage() {
       <PortablePowerStations />
       <ProvincesServedSection />
       <InstallationProcess />
+      <ContactUsSection />
       <Footer />
       <FloatingQuoteCard />
     </main>

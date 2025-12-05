@@ -27,7 +27,7 @@ const faqCategories = [
       {
         question: "How much do commercial battery systems cost?",
         answer:
-          "The cost of a commercial battery energy storage system varies based on capacity, technology type, installation complexity, and site requirements. However, with the Clean Energy Investment Tax Credit available in Canada (up to 30% on eligible equipment), along with various provincial rebates and our flexible in-house financing options, commercial BESS is now more affordable than ever. Contact us at 1-888-318-1988 or info@polaronsolar.com for a customized quote.",
+          "The cost of a commercial battery energy storage system varies based on capacity, technology type, installation complexity, and site requirements. However, with the Clean Energy Investment Tax Credit available in Canada (up to 30% on eligible equipment), along with various provincial rebates and our flexible in-house financing options, commercial BESS is now more affordable than ever. Contact us at 1-888-318-1988 or info@solar-x.ca for a customized quote.",
       },
       {
         question: "What are the main benefits of commercial battery storage?",

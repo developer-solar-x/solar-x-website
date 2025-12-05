@@ -7,7 +7,7 @@ import { FreeGiftSection } from "@/components/residential/free-gift-section"
 import { RedefineEnergy } from "@/components/residential/redefine-energy"
 import { FinancingSection } from "@/components/residential/financing-section"
 import { DroneTechnologySection } from "@/components/residential/drone-technology-section"
-import { ContactSection } from "@/components/residential/contact-section"
+import { ContactUsSection } from "@/components/contact-us-section"
 import { Footer } from "@/components/footer"
 import { FloatingQuoteCard } from "@/components/floating-quote-card"
 
@@ -23,7 +23,7 @@ export default function ResidentialPage() {
       <RedefineEnergy />
       <FinancingSection />
       <DroneTechnologySection />
-      <ContactSection />
+      <ContactUsSection />
       <Footer />
       <FloatingQuoteCard />
     </main>

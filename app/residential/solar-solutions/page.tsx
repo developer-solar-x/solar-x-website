@@ -6,7 +6,7 @@ import { HowSolarWorksSection } from "@/components/residential/solar-solutions/h
 import { ProvenEquipmentSection } from "@/components/residential/solar-solutions/proven-equipment"
 import { InstallationProcessSection } from "@/components/residential/solar-solutions/installation-process"
 import { SolarSolutionsFAQs } from "@/components/residential/solar-solutions/faqs"
-import { ContactSection } from "@/components/residential/contact-section"
+import { ContactUsSection } from "@/components/contact-us-section"
 import { Footer } from "@/components/footer"
 import { FloatingQuoteCard } from "@/components/floating-quote-card"
 
@@ -21,7 +21,7 @@ export default function SolarSolutionsPage() {
       <ProvenEquipmentSection />
       <InstallationProcessSection />
       <SolarSolutionsFAQs />
-      <ContactSection />
+      <ContactUsSection />
       <Footer />
       <FloatingQuoteCard />
     </main>

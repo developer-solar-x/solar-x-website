@@ -11,7 +11,7 @@ const navItems = [
   { label: "Commercial", href: "/commercial", hasSubmenu: true, submenuKey: "commercial" },
   { label: "Provinces", href: "#", hasSubmenu: true, submenuKey: "provinces" },
   { label: "About", href: "/about", hasSubmenu: true, submenuKey: "about" },
-  { label: "Contact", href: "#" },
+  { label: "Contact", href: "/contact" },
 ]
 
 const residentialSubmenu = [
@@ -38,6 +38,7 @@ const provincesSubmenu = [
 
 const aboutSubmenu = [
   { label: "FAQs", href: "/about#faqs" },
+  { label: "Blog", href: "/about/blog" },
 ]
 
 export function Header() {
@@ -108,7 +109,9 @@ export function Header() {
 
           {/* Get Quote Button - Right */}
           <div className="hidden md:block">
-            <Button className="rounded-full bg-[#e31b23] hover:bg-[#c91920] text-white" suppressHydrationWarning>Get Quote</Button>
+            <Link href="/contact">
+              <Button className="rounded-full bg-[#e31b23] hover:bg-[#c91920] text-white" suppressHydrationWarning>Get Quote</Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -169,7 +172,9 @@ export function Header() {
                   )}
                 </div>
               ))}
-              <Button className="rounded-full bg-[#e31b23] hover:bg-[#c91920] text-white mt-2 w-fit" suppressHydrationWarning>Get Quote</Button>
+              <Link href="/contact">
+                <Button className="rounded-full bg-[#e31b23] hover:bg-[#c91920] text-white mt-2 w-fit" suppressHydrationWarning>Get Quote</Button>
+              </Link>
             </nav>
           </div>
         </div>

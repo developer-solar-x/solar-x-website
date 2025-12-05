@@ -2,9 +2,10 @@
 
 import { useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import dynamic from "next/dynamic"
 import { Button } from "@/components/ui/button"
-import { Heart, Cog, Globe, Boxes, Building2, Home } from "lucide-react"
+import { Heart, Cog, Globe, Boxes, Building2, Home, ArrowRight } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
 
 const provinces = ["All", "AB", "NB", "NS", "ON"]
@@ -99,11 +100,13 @@ export function CanadaMapSection() {
             </p>
 
             {/* CTA Button */}
-            <Button
-              className="bg-[#ff4a4a] text-white hover:bg-[#e22f2f] rounded-full px-8 py-6 text-base font-semibold shadow-lg shadow-black/40 border border-white/10"
-            >
-              View Live Production Data
-            </Button>
+            <Link href="/live-data">
+              <Button
+                className="bg-[#ff4a4a] text-white hover:bg-[#e22f2f] rounded-full px-8 py-6 text-base font-semibold shadow-lg shadow-black/40 border border-white/10"
+              >
+                View Live Production Data
+              </Button>
+            </Link>
 
             {/* Stats */}
             <div className="space-y-6 pt-4">
@@ -156,7 +159,7 @@ export function ResidentialCommercialSection() {
   ]
 
   return (
-    <section className="py-16 md:py-24">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-background to-secondary/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
@@ -171,7 +174,7 @@ export function ResidentialCommercialSection() {
             const Icon = service.icon
             return (
               <ScrollReveal key={service.title} direction={index === 0 ? "right" : "left"} delay={index * 0.1}>
-                <div className="relative rounded-2xl overflow-hidden shadow-xl bg-white/5 border border-white/10 hover:border-white/20 transition-all group h-full flex flex-col">
+                <div className="relative rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-[#1a2b6b] to-[#152254] border-2 border-[#1a2b6b]/30 hover:border-[#ff4a4a]/50 transition-all group h-full flex flex-col">
                   {/* Image */}
                   <div className="relative h-[300px] overflow-hidden">
                     <Image
@@ -180,26 +183,31 @@ export function ResidentialCommercialSection() {
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-[#0a1628]/50 to-transparent" />
                     {/* Icon Badge */}
                     <div className="absolute top-4 left-4">
-                      <div className="bg-[#1a2b6b] text-white p-3 rounded-full shadow-lg">
+                      <div className="bg-[#ff4a4a] text-white p-3 rounded-full shadow-lg group-hover:scale-110 transition-transform duration-300">
                         <Icon className="w-6 h-6" />
                       </div>
                     </div>
                     {/* Title Overlay */}
                     <div className="absolute bottom-4 left-4">
-                      <div className="inline-flex rounded-lg bg-[#0a1628]/90 px-4 py-2 shadow-lg shadow-black/40 backdrop-blur-sm">
+                      <div className="inline-flex rounded-lg bg-[#1a2b6b]/95 backdrop-blur-sm px-4 py-2 shadow-lg shadow-black/40 border border-white/10">
                         <h3 className="text-2xl font-bold text-white">{service.title}</h3>
                       </div>
                     </div>
                   </div>
 
                   {/* Content */}
-                  <div className="p-6 bg-[#0a1628] flex-1 flex">
-                    <p className="text-white/90 leading-relaxed">
+                  <div className="p-6 bg-gradient-to-br from-[#1a2b6b] to-[#152254] flex-1 flex flex-col justify-between">
+                    <p className="text-white/90 leading-relaxed mb-6">
                       {service.description}
                     </p>
+                    <Link href={service.link} className="mt-auto">
+                      <Button className="w-full bg-[#ff4a4a] hover:bg-[#e22f2f] text-white rounded-lg px-6 py-3 font-semibold flex items-center justify-center gap-2 group shadow-lg shadow-[#ff4a4a]/30 hover:shadow-[#ff4a4a]/50 transition-all">
+                        Learn More
+                        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </ScrollReveal>

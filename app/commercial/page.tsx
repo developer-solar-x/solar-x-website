@@ -6,6 +6,7 @@ import { CommercialHero } from "@/components/commercial/hero"
 import { CommercialServicesCards } from "@/components/commercial/services-cards"
 import { GoingGreenSection } from "@/components/commercial/going-green-section"
 import { IncentivesSection } from "@/components/commercial/incentives-section"
+import { ContactUsSection } from "@/components/contact-us-section"
 
 export default function CommercialPage() {
   return (
@@ -16,6 +17,7 @@ export default function CommercialPage() {
       <CommercialServicesCards />
       <GoingGreenSection />
       <IncentivesSection />
+      <ContactUsSection />
       <Footer />
       <FloatingQuoteCard />
     </main>

@@ -3,9 +3,9 @@ import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { BlogSection } from "@/components/blog-section"
-import { GlobalImpactSection } from "@/components/global-impact-section"
 import { CanadaMapSection, ResidentialCommercialSection } from "@/components/canada-map-section"
 import { TrustPartnersCarousel } from "@/components/trust-partners-carousel"
+import { ContactUsSection } from "@/components/contact-us-section"
 import { Footer } from "@/components/footer"
 import { FloatingQuoteCard } from "@/components/floating-quote-card"
 
@@ -19,8 +19,8 @@ export default function Home() {
       <ResidentialCommercialSection />
       <TrustPartnersCarousel />
       <TestimonialsSection />
-      <BlogSection />
-      <GlobalImpactSection />
+      <BlogSection limit={3} showViewMore={true} />
+      <ContactUsSection />
       <Footer />
       <FloatingQuoteCard />
     </main>

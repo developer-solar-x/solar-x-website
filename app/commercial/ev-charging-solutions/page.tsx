@@ -7,7 +7,7 @@ import { WhyChooseEVCharging } from "@/components/commercial/ev-charging/why-cho
 import { KeyFeatures } from "@/components/commercial/ev-charging/key-features"
 import { InstallationProcess } from "@/components/commercial/ev-charging/installation-process"
 import { GuideToChoose } from "@/components/commercial/ev-charging/guide-to-choose"
-import { EVChargingContactSection } from "@/components/commercial/ev-charging/contact-section"
+import { ContactUsSection } from "@/components/contact-us-section"
 
 export default function EVChargingSolutionsPage() {
   return (
@@ -19,7 +19,7 @@ export default function EVChargingSolutionsPage() {
       <KeyFeatures />
       <InstallationProcess />
       <GuideToChoose />
-      <EVChargingContactSection />
+      <ContactUsSection />
       <Footer />
       <FloatingQuoteCard />
     </main>

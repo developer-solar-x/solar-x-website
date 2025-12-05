@@ -4,6 +4,7 @@ import { Footer } from "@/components/footer"
 import { FloatingQuoteCard } from "@/components/floating-quote-card"
 import { FAQHero } from "@/components/residential/faq-hero"
 import { FAQSection } from "@/components/residential/faq-section"
+import { ContactUsSection } from "@/components/contact-us-section"
 
 export default function FAQPage() {
   return (
@@ -12,6 +13,7 @@ export default function FAQPage() {
       <Header />
       <FAQHero />
       <FAQSection />
+      <ContactUsSection />
       <Footer />
       <FloatingQuoteCard />
     </main>

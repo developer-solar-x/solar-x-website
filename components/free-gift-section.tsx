@@ -15,7 +15,7 @@ export function FreeGiftSection() {
               Choose between our Portable 2-in-1 Flex-AC EV charger or a portable 300W power station when completing a
               solar or battery project with SolarX!
             </p>
-            <Link href="/residential-contact">
+            <Link href="/contact">
               <Button className="mt-6 bg-primary px-8 py-6 text-lg text-white hover:bg-primary/90">
                 Request Consultation
               </Button>

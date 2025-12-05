@@ -31,7 +31,7 @@ const promotions = [
   },
   {
     text: "Commercial Solar: ROI in as Little as 5 Years!",
-    link: "#",
+    link: "/contact",
     linkText: "Get Quote",
   },
 ]

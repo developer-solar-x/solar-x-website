@@ -1,5 +1,12 @@
 import Image from "next/image"
-import { CheckCircle2 } from "lucide-react"
+import { CheckCircle2, Home, Building2, Battery, Globe, Zap } from "lucide-react"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 
 const features = [
   "Fully Transparent",
@@ -8,27 +15,42 @@ const features = [
 ]
 
 const reportItems = [
-  "Structural Condition",
-  "Roof Condition",
-  "Existing Electrical Condition",
-  "Panel Layout",
-  "Wiring Route",
-  "BOS Design",
-  "Additional Costs",
+  {
+    title: "Structural Condition",
+    icon: Home,
+  },
+  {
+    title: "Roof Condition",
+    icon: Building2,
+  },
+  {
+    title: "Existing Electrical Condition",
+    icon: Battery,
+  },
+  {
+    title: "Panel Layout",
+    icon: Globe,
+  },
+  {
+    title: "Wiring Route",
+    icon: Zap,
+  },
+  {
+    title: "BOS Design",
+    icon: Zap,
+  },
 ]
 
 export function DroneTechnologySection() {
   return (
     <section className="bg-background py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
-            Pioneer in 3D Measurement Simulations with Drone Technology
-          </h2>
-        </div>
-
-        <div className="mt-12 grid gap-8 lg:grid-cols-2">
+        {/* Top Section: Heading and Features on Left, Image on Right */}
+        <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
           <div>
+            <h2 className="text-3xl font-bold text-foreground sm:text-4xl mb-8">
+              Pioneer in 3D Measurement Simulations with Drone Technology
+            </h2>
             <div className="space-y-4">
               {features.map((feature, index) => (
                 <div key={index} className="flex items-center gap-3">
@@ -39,24 +61,48 @@ export function DroneTechnologySection() {
             </div>
           </div>
 
-          <div className="relative h-[400px]">
+          <div className="relative h-[500px] rounded-xl overflow-hidden">
             <Image
-              src="/residential-house-with-solar-panels-on-roof-sunny-.jpg"
-              alt="House with solar panels and drone"
+              src="/newhero/droneassesment.png"
+              alt="Drone technology for 3D measurement simulations of solar panel installations"
               fill
-              className="rounded-xl object-cover"
+              className="object-cover"
+              style={{ objectPosition: '50% 30%' }}
             />
           </div>
         </div>
 
+        {/* Bottom Section: Site Assessment Report */}
         <div className="mt-16">
-          <h3 className="text-center text-2xl font-bold text-foreground">Site Assessment Report</h3>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {reportItems.map((item, index) => (
-              <div key={index} className="rounded-lg border border-border bg-card p-4 text-center">
-                <p className="font-medium text-foreground">{item}</p>
-              </div>
-            ))}
+          <h3 className="text-2xl font-bold text-foreground mb-8">Site Assessment Report</h3>
+          <div className="relative">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: false,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-2 md:-ml-4">
+                {reportItems.map((item, index) => {
+                  const Icon = item.icon
+                  return (
+                    <CarouselItem key={index} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
+                      <div className="rounded-xl bg-card border border-border p-6 text-center shadow-sm hover:shadow-md transition-shadow h-full">
+                        <div className="flex justify-center mb-4">
+                          <div className="rounded-lg bg-primary/10 p-3">
+                            <Icon className="h-6 w-6 text-primary" />
+                          </div>
+                        </div>
+                        <p className="font-medium text-foreground">{item.title}</p>
+                      </div>
+                    </CarouselItem>
+                  )
+                })}
+              </CarouselContent>
+              <CarouselPrevious className="-left-4 md:-left-12" />
+              <CarouselNext className="-right-4 md:-right-12" />
+            </Carousel>
           </div>
         </div>
       </div>

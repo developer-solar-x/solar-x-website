@@ -27,7 +27,7 @@ export function AlbertaHero() {
           Affordable solar installations
         </p>
         <div className="mt-10">
-          <Link href="#contact">
+          <Link href="/contact">
             <Button
               size="lg"
               className="bg-[#ff4a4a] text-white hover:bg-[#e22f2f] rounded-full px-8 py-6 text-base font-semibold shadow-lg shadow-black/40 border border-white/10"
