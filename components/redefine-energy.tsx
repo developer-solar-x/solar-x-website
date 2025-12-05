@@ -60,7 +60,8 @@ export function RedefineEnergy() {
           </div>
 
           {/* Right side - Image */}
-          <div className="relative h-[400px] lg:h-auto">
+          {/* Explicit responsive heights so <Image fill> always has a non-zero parent height */}
+          <div className="relative h-[280px] sm:h-[340px] lg:h-[400px]">
             <Image
               src="/placeholder.svg?key=kpfaz"
               alt="Aerial view of residential neighborhood with solar panels"

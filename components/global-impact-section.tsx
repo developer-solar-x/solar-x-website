@@ -34,9 +34,10 @@ export function GlobalImpactSection() {
 
           {/* Right - Bento grid image mosaic (3x3 bento layout, 6 images) */}
           <ScrollReveal direction="left" delay={0.2} className="h-full">
-            <div className="grid grid-cols-3 gap-4 h-full auto-rows-[140px] md:auto-rows-[170px] lg:auto-rows-[190px]">
+            {/* Use explicit heights so Next.js <Image fill> always has a non-zero parent height */}
+            <div className="grid grid-cols-3 gap-4 h-full">
               {/* Large hero tile - top-left, 2x2 */}
-              <div className="relative col-span-2 row-span-2 col-start-1 row-start-1 rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative col-span-2 row-span-2 col-start-1 row-start-1 rounded-2xl overflow-hidden shadow-2xl min-h-[180px] md:min-h-[220px] lg:min-h-[260px]">
                 <Image
                   src="/large-commercial-solar-farm-with-rows-of-panels.jpg"
                   alt="Utility-scale solar farm"
@@ -47,7 +48,7 @@ export function GlobalImpactSection() {
               </div>
 
               {/* Right column, stacked */}
-              <div className="relative col-start-3 row-start-1 rounded-2xl overflow-hidden shadow-xl">
+              <div className="relative col-start-3 row-start-1 rounded-2xl overflow-hidden shadow-xl min-h-[120px] md:min-h-[150px] lg:min-h-[170px]">
                 <Image
                   src="/commercial-solar-panels-on-warehouse-building.jpg"
                   alt="Commercial rooftop solar"
@@ -56,7 +57,7 @@ export function GlobalImpactSection() {
                 />
               </div>
 
-              <div className="relative col-start-3 row-start-2 rounded-2xl overflow-hidden shadow-xl">
+              <div className="relative col-start-3 row-start-2 rounded-2xl overflow-hidden shadow-xl min-h-[120px] md:min-h-[150px] lg:min-h-[170px]">
                 <Image
                   src="/ground-mounted-solar-array-in-green-field.jpg"
                   alt="Ground-mounted solar array"
@@ -66,7 +67,7 @@ export function GlobalImpactSection() {
               </div>
 
               {/* Bottom row - three equal tiles */}
-              <div className="relative col-start-1 row-start-3 rounded-2xl overflow-hidden shadow-xl">
+              <div className="relative col-start-1 row-start-3 rounded-2xl overflow-hidden shadow-xl min-h-[120px] md:min-h-[150px] lg:min-h-[170px]">
                 <Image
                   src="/home-battery-storage-system-on-wall-modern-house-i.jpg"
                   alt="Home battery storage system"
@@ -75,7 +76,7 @@ export function GlobalImpactSection() {
                 />
               </div>
 
-              <div className="relative col-start-2 row-start-3 rounded-2xl overflow-hidden shadow-xl">
+              <div className="relative col-start-2 row-start-3 rounded-2xl overflow-hidden shadow-xl min-h-[120px] md:min-h-[150px] lg:min-h-[170px]">
                 <Image
                   src="/industrial-solar-installation-on-factory-building.jpg"
                   alt="Industrial solar installation"
@@ -84,7 +85,7 @@ export function GlobalImpactSection() {
                 />
               </div>
 
-              <div className="relative col-start-3 row-start-3 rounded-2xl overflow-hidden shadow-xl">
+              <div className="relative col-start-3 row-start-3 rounded-2xl overflow-hidden shadow-xl min-h-[120px] md:min-h-[150px] lg:min-h-[170px]">
                 <Image
                   src="/residential-solar-panels-on-modern-home-rooftop.jpg"
                   alt="Residential solar rooftop"
